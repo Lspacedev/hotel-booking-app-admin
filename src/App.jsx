@@ -1,35 +1,103 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import HomePage from "./components/main/HomePage";
+import ResultsPage from "./components/main/ResultsPage";
+import AccomodationCard from "./components/main/AccomodationCard";
+import AccomodationDetails from "./components/admin/AccomodationDetails";
+import UserDashboard from "./components/user/UserDashboard";
+import "./App.css";
+import AdminDashboard from "./components/admin/AdminDashboard";
+import Accomodations from "./components/admin/Accomodations";
+import UserLogin from "./components/login/UserLogin";
+import AdminLogin from "./components/login/AdminLogin";
+import UserRegistration from "./components/registration/UserRegistration";
+import Checkout from "./components/checkout/Checkout";
+import ProtectedRouteReg from "./components/protected-routes/ProtectedRouteReg";
+import ProtectedRoutes from "./components/protected-routes/ProtectedRoutes";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  collectionGroup,
+  query,
+  collection,
+  getDocs,
+} from "firebase/firestore";
+import { auth } from "./config/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
+//import { ref, listAll } from "firebase/storage";
+//import { storage } from "./config/firebase";
+import { db } from "./config/firebase";
+import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
+import { useDispatch } from "react-redux";
+import { setAccomodations } from "./app/accomodationsSlice";
+import useLocalStorage from "./components/storage/useLocalStorage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState("");
+  const dispatch = useDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        setUser(user);
+        // ...
+        console.log(user);
+      } else {
+        // User is signed out
+        // ...
+        console.log("user is logged out");
+      }
+    });
+  }, []);
 
+  useEffect(() => {
+    fetchAccomodations();
+  }, []);
+  async function fetchAccomodations() {
+    try {
+      const querySnapshot = await getDocs(collectionGroup(db, "accomodations"));
+      //  const adminDocRef = adminRef.doc('A2Kvj5vTHdfJde8Sl8KV8rw1e2v1');
+      //   const accomodationsRef = adminDocRef.collection('accomodations');
+      //   const querySnapshot = await accomodationsRef.get();
+
+      //const accomodationsRef = query(collectionGroup(db, 'landmarks')
+
+      // const querySnapshot = await getDocs(collection(db, "admin"));
+      const data = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      //setAcc(data);
+      console.log(data);
+      dispatch(setAccomodations(data));
+
+      //setTransactions(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  //console.log(auth.currentUser);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route exact path="/" element={<AdminLogin />} />
+
+          <Route element={<ProtectedRoutes auth={user} />}>
+            <Route path="home" element={<AdminDashboard />}>
+              <Route path="accomodations" element={<Accomodations />}>
+                <Route
+                  path=":accomodation_id"
+                  element={<AccomodationDetails />}
+                />
+              </Route>
+            </Route>
+          </Route>
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </Router>
+  );
 }
 
-export default App
+export default App;
