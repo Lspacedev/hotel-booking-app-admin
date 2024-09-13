@@ -26,6 +26,8 @@ function AccomodationForm({ toggleClicked }) {
     policies: "",
     description: "",
     gallery: [],
+    bookings: [],
+    reviews: [],
   });
 
   function handleChange(e) {

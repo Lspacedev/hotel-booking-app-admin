@@ -272,7 +272,7 @@ function AccomodationDetails({ acc, photosArr, title }) {
             <div className="img">
               {images.length > 0 && <img src={images[0]} />}
             </div>
-            <button className="share-btn">Share</button>
+
             <div className="accomodation-info">
               <h4>{accomodation && accomodation.price}</h4>
               <div className="acc-info-section">

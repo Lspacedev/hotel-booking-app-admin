@@ -9,6 +9,8 @@ import AdminDashboard from "./components/admin/AdminDashboard";
 import Accomodations from "./components/admin/Accomodations";
 import UserLogin from "./components/login/UserLogin";
 import AdminLogin from "./components/login/AdminLogin";
+import Reservations from "./components/admin/Reservations";
+import ReservationViewCard from "./components/admin/ReservationViewCard";
 import UserRegistration from "./components/registration/UserRegistration";
 import Checkout from "./components/checkout/Checkout";
 import ProtectedRouteReg from "./components/protected-routes/ProtectedRouteReg";
@@ -91,6 +93,9 @@ function App() {
                   path=":accomodation_id"
                   element={<AccomodationDetails />}
                 />
+              </Route>
+              <Route path="reservations" element={<Reservations />}>
+                <Route path=":booking_id" element={<ReservationViewCard />} />
               </Route>
             </Route>
           </Route>

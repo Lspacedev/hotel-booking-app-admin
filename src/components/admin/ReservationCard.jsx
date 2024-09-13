@@ -1,31 +1,39 @@
-function ReservationCard() {
+import { useNavigate } from "react-router-dom";
+
+function ReservationCard({ booking }) {
+  const navigation = useNavigate();
+
+  function handleNavigateSubPage() {
+    navigation(`/home/reservations/${booking.bookingId}`);
+  }
   return (
     <div className="ReservationCard">
-      <h7>Hotel Name</h7>
-      <h6>Room Name</h6>
-      <p>User Name</p>
+      <h5>{booking.hotel_name}</h5>
+      <h6>Booking Id: {booking.bookingId}</h6>
+      <h6>Room Id: {booking.roomId}</h6>
+      <p>User Id: {booking.userId}</p>
       <div className="checkin-out">
         <div>
           <p>Check in</p>
-          <h8>date</h8>
+          <p>{booking.checkIn}</p>
         </div>
         <div>
           <p>Check Out</p>
-          <h8>date</h8>
+          <p>{booking.checkOut}</p>
         </div>
       </div>
       <div className="status-date">
         <div>
           <p>Status</p>
-          <h8>paid</h8>
+          <p>{booking.status}</p>
         </div>
-        <div>
+        {/* <div>
           <p>Date</p>
-          <h8>date</h8>
-        </div>
+          <p>date</p>
+        </div> */}
       </div>
       <div className="v-btn">
-        <button>View</button>
+        <button onClick={handleNavigateSubPage}>View</button>
       </div>
     </div>
   );

@@ -27,7 +27,9 @@ function AdminDashboard() {
         <Link to="accomodations">
           <div>Accomodations</div>{" "}
         </Link>
-        <div>Reservations</div>
+        <Link to="reservations">
+          <div>Reservations</div>{" "}
+        </Link>
         <div className="logout" onClick={logOut}>
           Logout
         </div>

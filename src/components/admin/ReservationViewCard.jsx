@@ -1,71 +1,139 @@
-function ReservationViewCard({ photosArr, title }) {
+import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { db } from "../../config/firebase";
+
+function ReservationViewCard() {
+  const { booking_id } = useParams();
+  const accomodations = useSelector(
+    (state) => state.accomodations.accomodations
+  );
+  let bookingObj = {};
+  let currentRoom = {};
+  accomodations.forEach((accomodation) => {
+    accomodation.bookings.forEach((booking) => {
+      if (booking.bookingId === booking_id) {
+        bookingObj = { ...booking };
+        currentRoom = { ...accomodation };
+      }
+    });
+  });
+
+  async function approve() {
+    let bookings =
+      JSON.stringify(currentRoom) !== "{}" ? [...currentRoom.bookings] : [];
+    let newBookings = bookings.map((booking) => {
+      if (booking.bookingId === bookingObj.bookingId) {
+        let obj = { ...booking };
+        obj.status = "approved";
+        return obj;
+      }
+      return booking;
+    });
+
+    console.log(newBookings);
+
+    //update booking obj in accomodation booking
+    try {
+      const accomodationsCollection = collection(
+        db,
+        "admin",
+        "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+        "accomodations"
+      );
+      const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
+      console.log(accomodationRef);
+      await updateDoc(accomodationRef, {
+        bookings: newBookings,
+      });
+      alert("updated bookings");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function reject() {
+    let bookings =
+      JSON.stringify(currentRoom) !== "{}" ? [...currentRoom.bookings] : [];
+    let newBookings = bookings.map((booking) => {
+      if (booking.bookingId === bookingObj.bookingId) {
+        let obj = { ...booking };
+        obj.status = "rejected";
+        return obj;
+      }
+      return booking;
+    });
+
+    console.log(newBookings);
+
+    //update booking obj in accomodation booking
+    try {
+      const accomodationsCollection = collection(
+        db,
+        "admin",
+        "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+        "accomodations"
+      );
+      const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
+      console.log(accomodationRef);
+      await updateDoc(accomodationRef, {
+        bookings: newBookings,
+      });
+      alert("updated bookings");
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <div className="ReservationViewCard">
       <div className="img-guest">
         <div className="img"></div>
         <div className="guest">
-          <h3 className="guest-name">Name</h3>
+          <h3 className="guest-name">User Id: {bookingObj.userId}</h3>
           <div className="view-checkin-out">
             <div>
               <p>Check in</p>
-              <h8>date</h8>
+              <h6>{bookingObj.checkIn}</h6>
             </div>
             <div>
               <p>Check Out</p>
-              <h8>date</h8>
+              <h6>{bookingObj.checkOut}</h6>
             </div>
           </div>
           <div className="guests-room-type">
             <div>
               <p>Nr of guests</p>
-              <h8>Number</h8>
+              <h6>Number</h6>
             </div>
             <div>
               <p>Room Type</p>
-              <h8>standard</h8>
+              <h5>{currentRoom.room_type}</h5>
             </div>
           </div>
         </div>
       </div>
 
       <div className="accomodation-info">
-        <h4>Price</h4>
+        <h4>{currentRoom.price}</h4>
         <div className="acc-info-section">
-          <h5>Hotel Facilities</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam cum
-            facilis fuga ipsa consectetur atque suscipit totam rem aliquid quas
-            delectus velit numquam nemo, culpa asperiores perferendis, eius sint
-            placeat?
-          </p>
+          <h5>Room description</h5>
+          <p>{currentRoom && currentRoom.description}</p>
+        </div>
+        <div className="acc-info-section">
+          <h5>Amenities</h5>
+          <p>{currentRoom && currentRoom.amenities}</p>
         </div>
         <div className="acc-info-section">
           <h5>Policies</h5>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias
-            aperiam illo amet et, voluptates possimus itaque rem accusamus
-            repudiandae quas dolor vel placeat quis ducimus laudantium. Modi hic
-            ea amet?
-          </p>
+          <p>{currentRoom && currentRoom.policies}</p>
         </div>
-        <div className="acc-details">
-          <h5>Policies</h5>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid,
-            consectetur labore odit quos temporibus quasi dignissimos placeat
-            facere atque nam quo nulla quod, possimus nesciunt aut? Aperiam
-            soluta amet voluptatibus.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-            exercitationem quos repudiandae delectus eaque, autem odit, qui
-            facilis fugit odio molestiae, similique voluptatibus nobis molestias
-            perferendis magnam nihil velit ea?
-          </p>
-        </div>
+
         <div className="view-btns">
-          <button className="approve-btn">Approve</button>
-          <button className="reject-btn">Reject</button>
+          <button className="approve-btn" onClick={approve}>
+            Approve
+          </button>
+          <button className="reject-btn" onClick={reject}>
+            Reject
+          </button>
         </div>
       </div>
     </div>
