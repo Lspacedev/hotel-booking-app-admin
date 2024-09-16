@@ -30,8 +30,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { db } from "./config/firebase";
 import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
 import { useDispatch } from "react-redux";
-import { setAccomodations } from "./app/accomodationsSlice";
+import { setAccomodations, setAdmin } from "./app/accomodationsSlice";
 import useLocalStorage from "./components/storage/useLocalStorage";
+import AdminProfile from "./components/profiles/AdminProfile";
 
 function App() {
   const [user, setUser] = useState("");
@@ -56,25 +57,17 @@ function App() {
   useEffect(() => {
     fetchAccomodations();
   }, []);
+
   async function fetchAccomodations() {
     try {
       const querySnapshot = await getDocs(collectionGroup(db, "accomodations"));
-      //  const adminDocRef = adminRef.doc('A2Kvj5vTHdfJde8Sl8KV8rw1e2v1');
-      //   const accomodationsRef = adminDocRef.collection('accomodations');
-      //   const querySnapshot = await accomodationsRef.get();
 
-      //const accomodationsRef = query(collectionGroup(db, 'landmarks')
-
-      // const querySnapshot = await getDocs(collection(db, "admin"));
       const data = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      //setAcc(data);
-      console.log(data);
-      dispatch(setAccomodations(data));
 
-      //setTransactions(data);
+      dispatch(setAccomodations(data));
     } catch (error) {
       console.log(error);
     }
@@ -97,6 +90,7 @@ function App() {
               <Route path="reservations" element={<Reservations />}>
                 <Route path=":booking_id" element={<ReservationViewCard />} />
               </Route>
+              <Route path="profile" element={<AdminProfile admin={user} />} />
             </Route>
           </Route>
         </Routes>

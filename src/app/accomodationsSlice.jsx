@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const accomodationsSlice = createSlice({
   name: "accomodations",
   initialState: {
+    admin: {},
     accomodations: [],
     searchTerm: {},
     searchResults: [],
@@ -17,9 +18,12 @@ export const accomodationsSlice = createSlice({
     setAccomodations: (state, action) => {
       state.accomodations = action.payload;
     },
+    setAdmin: (state, action) => {
+      state.admin = action.payload;
+    },
   },
 });
-export const { setSearchTerm, setSearchResults, setAccomodations } =
+export const { setSearchTerm, setSearchResults, setAccomodations, setAdmin } =
   accomodationsSlice.actions;
 
 export default accomodationsSlice.reducer;
