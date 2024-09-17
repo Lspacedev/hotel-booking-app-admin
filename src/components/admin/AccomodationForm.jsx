@@ -22,6 +22,7 @@ function AccomodationForm({ toggleClicked }) {
     hotel_name: "Pretoria",
     address: "",
     rating: "",
+    guests: "",
     amenities: "",
     policies: "",
     description: "",
@@ -197,6 +198,18 @@ function AccomodationForm({ toggleClicked }) {
                 name="rating"
                 onChange={(e) => handleChange(e)}
                 value={obj.rating}
+              />
+            </label>
+          </div>
+          <div className="guests">
+            <label htmlFor="guests">
+              Nr of guests
+              <input
+                type="number"
+                id="guests"
+                name="guests"
+                onChange={(e) => handleChange(e)}
+                value={obj.guests}
               />
             </label>
           </div>

@@ -21,15 +21,20 @@ function AdminDashboard() {
       })
       .catch((err) => {});
   }
+
+  function navigateAccomodation() {
+    navigation("/home/accomodations");
+  }
+  function navigateReservations() {
+    navigation("/home/reservations");
+  }
   return (
     <div className="AdminDashboard">
       <Sidebar>
-        <Link to="accomodations">
-          <div>Accomodations</div>{" "}
-        </Link>
-        <Link to="reservations">
-          <div>Reservations</div>{" "}
-        </Link>
+        <div onClick={navigateAccomodation}>Accomodations</div>
+
+        <div onClick={navigateReservations}>Reservations</div>
+
         <div className="logout" onClick={logOut}>
           Logout
         </div>

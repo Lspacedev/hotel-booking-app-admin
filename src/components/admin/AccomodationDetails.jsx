@@ -15,6 +15,7 @@ function AccomodationDetails({ acc, photosArr, title }) {
     hotel_name: "",
     address: "",
     rating: "",
+    guests: "",
     amenities: "",
     policies: "",
     description: "",
@@ -72,6 +73,9 @@ function AccomodationDetails({ acc, photosArr, title }) {
     }
     if (obj.rating !== "") {
       updatedObj.rating = obj.rating;
+    }
+    if (obj.guests !== "") {
+      updatedObj.guests = obj.guests;
     }
     if (obj.amenities !== "") {
       updatedObj.amenities = obj.amenities;
@@ -221,7 +225,18 @@ function AccomodationDetails({ acc, photosArr, title }) {
                 />
               </label>
             </div>
-
+            <div className="guests">
+              <label htmlFor="guests">
+                Nr of guests
+                <input
+                  type="number"
+                  id="guests"
+                  name="guests"
+                  onChange={(e) => handleChange(e)}
+                  value={obj.guests}
+                />
+              </label>
+            </div>
             <div className="amenities">
               <label htmlFor="amenities">
                 Amenities

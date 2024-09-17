@@ -20,7 +20,7 @@ function AdminLogin() {
   return (
     <div className="AdminLogin">
       <div className="login-img">
-        {/* <img src="images/shop.jpg" alt="login" /> */}
+        <img src="images/login-register.jpg" alt="login" />
       </div>
       <div className="login-form-container">
         <h2>ZaHotels.com | Admin</h2>

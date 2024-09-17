@@ -1,37 +1,26 @@
 import { useState, useEffect } from "react";
 import HomePage from "./components/main/HomePage";
-import ResultsPage from "./components/main/ResultsPage";
-import AccomodationCard from "./components/main/AccomodationCard";
+
 import AccomodationDetails from "./components/admin/AccomodationDetails";
-import UserDashboard from "./components/user/UserDashboard";
+
 import "./App.css";
 import AdminDashboard from "./components/admin/AdminDashboard";
 import Accomodations from "./components/admin/Accomodations";
-import UserLogin from "./components/login/UserLogin";
+
 import AdminLogin from "./components/login/AdminLogin";
 import Reservations from "./components/admin/Reservations";
 import ReservationViewCard from "./components/admin/ReservationViewCard";
-import UserRegistration from "./components/registration/UserRegistration";
-import Checkout from "./components/checkout/Checkout";
-import ProtectedRouteReg from "./components/protected-routes/ProtectedRouteReg";
+
 import ProtectedRoutes from "./components/protected-routes/ProtectedRoutes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {
-  collectionGroup,
-  query,
-  collection,
-  getDocs,
-} from "firebase/firestore";
+import { collectionGroup, getDocs } from "firebase/firestore";
 import { auth } from "./config/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 
-//import { ref, listAll } from "firebase/storage";
-//import { storage } from "./config/firebase";
 import { db } from "./config/firebase";
-import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
 import { useDispatch } from "react-redux";
 import { setAccomodations, setAdmin } from "./app/accomodationsSlice";
-import useLocalStorage from "./components/storage/useLocalStorage";
+
 import AdminProfile from "./components/profiles/AdminProfile";
 
 function App() {
@@ -72,15 +61,16 @@ function App() {
       console.log(error);
     }
   }
-  //console.log(auth.currentUser);
+
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<AdminLogin />} />
-
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="login" element={<AdminLogin />} />
           <Route element={<ProtectedRoutes auth={user} />}>
             <Route path="home" element={<AdminDashboard />}>
+              <Route index element={<Accomodations />} />
               <Route path="accomodations" element={<Accomodations />}>
                 <Route
                   path=":accomodation_id"

@@ -102,7 +102,7 @@ function ReservationViewCard() {
           <div className="guests-room-type">
             <div>
               <p>Nr of guests</p>
-              <h6>Number</h6>
+              <h6>{bookingObj.guests}</h6>
             </div>
             <div>
               <p>Room Type</p>

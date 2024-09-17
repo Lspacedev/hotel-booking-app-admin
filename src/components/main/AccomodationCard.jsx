@@ -57,6 +57,7 @@ function AccomodationCard({ title }) {
   //   }
   //   slidesRef[slideIndex - 1].styles.display = "block";
   // }
+
   return (
     <div className="AccomodationCard">
       {JSON.stringify(images)}
