@@ -6,7 +6,9 @@ import { useParams } from "react-router-dom";
 import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-function AccomodationDetails({ acc, photosArr, title }) {
+import { IoMdArrowBack } from "react-icons/io";
+
+function AccomodationDetails() {
   const [edit, setEdit] = useState(false);
   const [obj, setObj] = useState({
     price: "",
@@ -86,46 +88,63 @@ function AccomodationDetails({ acc, photosArr, title }) {
     if (obj.description !== "") {
       updatedObj.description = obj.description;
     }
-    //update accomodation to firestore
-    try {
+
+    let updateConfirmation = window.confirm(
+      "You are about to update accomodation information. Continue?"
+    );
+      if(updateConfirmation){
+
+      
+        //update accomodation to firestore
+        try {
+          const accomodationsCollection = collection(
+            db,
+            "admin",
+            "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+            "accomodations"
+          );
+          const accomodationRef = doc(accomodationsCollection, accomodation_id);
+          if (JSON.stringify(updatedObj) !== "{}") {
+            await updateDoc(accomodationRef, updatedObj);
+            alert("Updated successfully");
+          } else {
+            alert("Nothing to update");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    // toggleClicked();
+  }
+
+  async function deleteAccomodation() {
+    let deleteConfirmation = window.confirm(
+      "Are you sure you want to delete accomodation?"
+    );
+    if(deleteConfirmation){
       const accomodationsCollection = collection(
         db,
         "admin",
         "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
         "accomodations"
       );
-      const accomodationRef = doc(accomodationsCollection, accomodation_id);
-      console.log(accomodationRef);
-      if (JSON.stringify(updatedObj) !== "{}") {
-        await updateDoc(accomodationRef, updatedObj);
-        alert("Updated successfully");
-      } else {
-        alert("Nothing to update");
+      const docRef = doc(accomodationsCollection, accomodation_id);
+      try {
+        await deleteDoc(docRef);
+        alert("deleted succesfully");
+        navigation("/home/accomodations");
+      } catch (error) {
+        console.log(error);
       }
-    } catch (err) {
-      console.log(err);
     }
-    // toggleClicked();
   }
-
-  async function deleteAccomodation() {
-    const accomodationsCollection = collection(
-      db,
-      "admin",
-      "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
-      "accomodations"
-    );
-    const docRef = doc(accomodationsCollection, accomodation_id);
-    try {
-      await deleteDoc(docRef);
-      alert("deleted succesfully");
-      navigation("/home/accomodations");
-    } catch (error) {
-      console.log(error);
-    }
+  function goBack() {
+    navigation("/home/accomodations");
   }
   return (
     <div className="AccomodationDetails">
+      <IoMdArrowBack onClick={goBack} className="back" />
+
       <div className="accomodation-content">
         {edit === true ? (
           <div className="accomodation-update-form">

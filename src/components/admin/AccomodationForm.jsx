@@ -92,13 +92,13 @@ function AccomodationForm({ toggleClicked }) {
     <div className="AccomodationForm">
       <div className="form-div">
         <div className="form-title-close">
-          <h3>Enter Accomodation Information</h3>
           <div className="form-close" onClick={handleFormClose}>
             x
           </div>
         </div>
         <form>
-          <div className="room_name">
+          
+          <div className="room_name-hotel_name">
             <label htmlFor="room_name">
               Room Name
               <input
@@ -109,8 +109,18 @@ function AccomodationForm({ toggleClicked }) {
                 value={obj.room_name}
               />
             </label>
-          </div>
-          <div className="room_type">
+            <label htmlFor="hotel_name">
+              Hotel Name
+              <select
+                name="hotel_name"
+                onChange={(e) => handleChange(e)}
+                value={obj.hotel_name}
+              >
+                <option value="Pretoria">Pretoria</option>
+                <option value="Johannesburg">Johannesburg</option>
+                <option value="Cape Town">Cape Town</option>
+              </select>
+            </label>
             <label htmlFor="room_type">
               Room Type
               <select
@@ -124,46 +134,39 @@ function AccomodationForm({ toggleClicked }) {
               </select>
             </label>
           </div>
+          <div className="room_type">
+
+          </div>
           <div className="gallery">
             <label htmlFor="gallery">
               Gallery
-              <input
-                type="file"
-                name="gallery"
-                onChange={(e) => {
-                  setImg1(e.target.files[0]);
-                }}
-              />
-              <input
-                type="file"
-                name="gallery"
-                onChange={(e) => {
-                  setImg2(e.target.files[0]);
-                }}
-              />
-              <input
-                type="file"
-                name="gallery"
-                onChange={(e) => {
-                  setImg3(e.target.files[0]);
-                }}
-              />
+              <div>
+
+                <input
+                  type="file"
+                  name="gallery"
+                  onChange={(e) => {
+                    setImg1(e.target.files[0]);
+                  }}
+                />
+                <input
+                  type="file"
+                  name="gallery"
+                  onChange={(e) => {
+                    setImg2(e.target.files[0]);
+                  }}
+                />
+                <input
+                  type="file"
+                  name="gallery"
+                  onChange={(e) => {
+                    setImg3(e.target.files[0]);
+                  }}
+                />
+              </div>
             </label>
           </div>
-          <div className="hotel_name">
-            <label htmlFor="hotel_name">
-              Hotel Name
-              <select
-                name="hotel_name"
-                onChange={(e) => handleChange(e)}
-                value={obj.hotel_name}
-              >
-                <option value="Pretoria">Pretoria</option>
-                <option value="Johannesburg">Johannesburg</option>
-                <option value="Cape Town">Cape Town</option>
-              </select>
-            </label>
-          </div>
+       
           <div className="price">
             <label htmlFor="price">
               Price
@@ -189,7 +192,7 @@ function AccomodationForm({ toggleClicked }) {
             </label>
           </div>
 
-          <div className="rating">
+          <div className="rating-guests">
             <label htmlFor="rating">
               Rating
               <input
@@ -200,8 +203,6 @@ function AccomodationForm({ toggleClicked }) {
                 value={obj.rating}
               />
             </label>
-          </div>
-          <div className="guests">
             <label htmlFor="guests">
               Nr of guests
               <input
@@ -213,6 +214,7 @@ function AccomodationForm({ toggleClicked }) {
               />
             </label>
           </div>
+   
 
           <div className="amenities">
             <label htmlFor="amenities">

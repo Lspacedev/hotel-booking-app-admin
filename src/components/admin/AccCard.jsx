@@ -35,7 +35,7 @@ function AccCard({ accomodation }) {
           <p>{accomodation.description}</p>
         </div>
         <div>
-          <p>{accomodation.price}</p>
+          <p>R{accomodation.price}</p>
         </div>
       </div>
     </div>

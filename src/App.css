@@ -14,7 +14,7 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
 
   color: #626267;
@@ -74,37 +74,6 @@ body {
   text-align: center;
 }
 
-.SearchAccomodations {
-  position: absolute;
-  bottom: 20px;
-  width: 70%;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  display: flex;
-  gap: 5px;
-  align-items: center;
-
-  padding: 15px;
-  background-color: white;
-
-  border-radius: 5px;
-}
-
-.SearchAccomodations input {
-  flex: 1;
-  padding: 15px 0px;
-  border-radius: 5px;
-  border: none;
-  background-color: #ebebeb;
-
-  text-align: center;
-}
-
-.SearchAccomodations input[type="submit"] {
-  padding: 15px 32px;
-  border: 1px solid #a6a670;
-  background-color: white;
-}
 
 /* Categories */
 .Categories {
@@ -135,89 +104,6 @@ body {
 
 .heading {
   text-align: center;
-}
-
-/** RESULTS PAGE **/
-.search-div {
-  background-color: #36363a;
-  height: 150px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.SearchAccomodationsResults {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-
-  padding: 15px;
-  background-color: white;
-
-  border-radius: 5px;
-}
-
-.SearchAccomodationsResults input {
-  flex: 1;
-  padding: 15px 0px;
-  border-radius: 5px;
-  border: none;
-
-  text-align: center;
-}
-
-.SearchAccomodationsResults input[type="submit"] {
-  padding: 15px 32px;
-  border: 1px solid #a6a670;
-  background-color: white;
-}
-
-/* Filters */
-.Filters {
-  flex: 10%;
-  padding: 30px 50px;
-  font-size: 1.3rem;
-}
-
-.Results {
-  flex: 90%;
-  padding-left: 5px;
-}
-.NavPath {
-  margin-left: 15%;
-}
-.results-main {
-  display: flex;
-  width: 80%;
-  margin: 0px auto;
-}
-
-.results-div {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.ResultCard {
-  display: flex;
-  gap: 15px;
-
-  box-shadow: 1px 1px 5px #bbb;
-}
-.ResultCard .img {
-  flex: 30%;
-  background-color: #bbb;
-}
-
-.result-card-info {
-  flex: 70%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.side-two {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 }
 
 /* AccomodationCard */
@@ -323,14 +209,15 @@ body {
   flex-direction: column;
 
   text-align: center;
-  padding: 50px 5px;
-  background-color: #626267;
+  padding: 15px 5px 50px 5px;
+  background-color: #303032;
 }
 
-.logo {
-  font-size: 1.4rem;
+.Sidebar .logo {
+  font-size: 1.2rem;
   font-weight: bold;
   color: #a6a670;
+  margin-bottom: 50px;
 }
 .logout {
   cursor: pointer;
@@ -592,14 +479,16 @@ body {
   padding: 15px 25px;
 }
 .AccCard {
-  width: 80%;
+  width: 70%;
   display: flex;
   gap: 15px;
-
+  border-radius: 5px;
   box-shadow: 1px 1px 5px #bbb;
+  color: #36363a;
+  cursor: pointer;
 }
 .AccCard .img {
-  flex: 30%;
+  flex: 50%;
   height: 200px;
   background-color: #bbb;
 }
@@ -609,7 +498,7 @@ body {
 }
 
 .acc-card-info {
-  flex: 70%;
+  flex: 50%;
   display: flex;
   justify-content: space-between;
   padding: 0px 5px;
@@ -652,6 +541,126 @@ body {
   margin: 2px;
 }
 
+
+
+.AccomodationForm {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  cursor: pointer;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.form-div {
+  margin: 20px 0px;
+}
+.form-div form {
+  margin: 0 auto 0 auto;
+  padding: 15px;
+  width: 700px;
+ 
+  
+
+  background-color: white;
+}
+.form-div form input[type="file"] {
+  font-size: 0.7rem;
+ 
+  outline: none;
+  border: none;
+}
+.form-div form input {
+  margin: 0px 0px;
+  padding: 5px 0px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.form-div form label {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.form-close {
+  text-align: end;
+  font-size: 1.5rem;
+  margin-top: 35px;
+  margin-right: -50px;
+  cursor: pointer;
+}
+.form-close:hover {
+  color: #a6a670;
+}
+.rating-guests {
+  display: flex;
+}
+
+.gallery label {
+  display: flex;
+  flex-direction: column;
+}
+
+.room_name-hotel_name {
+  display: flex;
+  align-items: center;
+}
+
+.accomodation-update-form input {
+  margin: 0px 0px;
+  padding: 5px 0px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.accomodation-update-form label {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.update {
+  padding: 7px 15px;
+  background-color: #a6a670;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.update:hover {
+  background-color: #36363a;
+}
+
+.back {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.back:hover {
+  color: #a6a670;
+}
 /* User Login */
 .UserLogin {
   height: 100vh;
@@ -737,8 +746,8 @@ select {
 
 /* Admin Login */
 .profile-pic img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
 }
 .AdminLogin {
   height: 100vh;
@@ -823,6 +832,7 @@ select {
 }
 .AdminProfile {
   text-align: center;
+  margin: 10px 0px;
 }
 /* Registration */
 .UserRegistration {

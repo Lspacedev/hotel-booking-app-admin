@@ -1,9 +1,13 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../config/firebase";
+import { IoMdArrowBack } from "react-icons/io";
+
 
 function ReservationViewCard() {
+  const navigation = useNavigate();
+
   const { booking_id } = useParams();
   const accomodations = useSelector(
     (state) => state.accomodations.accomodations
@@ -31,24 +35,28 @@ function ReservationViewCard() {
       return booking;
     });
 
-    console.log(newBookings);
+    let approveConfirmation = window.confirm(
+      "You are about to approve this reservation. Continue?"
+    );
 
-    //update booking obj in accomodation booking
-    try {
-      const accomodationsCollection = collection(
-        db,
-        "admin",
-        "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
-        "accomodations"
-      );
-      const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
-      console.log(accomodationRef);
-      await updateDoc(accomodationRef, {
-        bookings: newBookings,
-      });
-      alert("updated bookings");
-    } catch (err) {
-      console.log(err);
+    if(approveConfirmation){
+      //update booking obj in accomodation booking
+      try {
+        const accomodationsCollection = collection(
+          db,
+          "admin",
+          "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+          "accomodations"
+        );
+        const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
+        console.log(accomodationRef);
+        await updateDoc(accomodationRef, {
+          bookings: newBookings,
+        });
+        alert("updated bookings");
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
   async function reject() {
@@ -63,28 +71,36 @@ function ReservationViewCard() {
       return booking;
     });
 
-    console.log(newBookings);
-
-    //update booking obj in accomodation booking
-    try {
-      const accomodationsCollection = collection(
-        db,
-        "admin",
-        "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
-        "accomodations"
-      );
-      const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
-      console.log(accomodationRef);
-      await updateDoc(accomodationRef, {
-        bookings: newBookings,
-      });
-      alert("updated bookings");
-    } catch (err) {
-      console.log(err);
-    }
+    let rejectConfirmation = window.confirm(
+      "You are about to reject this reservation. Continue?"
+    );
+    if(rejectConfirmation){
+      //update booking obj in accomodation booking
+      try {
+        const accomodationsCollection = collection(
+          db,
+          "admin",
+          "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+          "accomodations"
+        );
+        const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
+        console.log(accomodationRef);
+        await updateDoc(accomodationRef, {
+          bookings: newBookings,
+        });
+        alert("updated bookings");
+      } catch (err) {
+        console.log(err);
+      }
+   }
+  }
+  function goBack() {
+    navigation("/home/reservations");
   }
   return (
     <div className="ReservationViewCard">
+      <IoMdArrowBack onClick={goBack} className="back" />
+
       <div className="img-guest">
         <div className="img"></div>
         <div className="guest">
