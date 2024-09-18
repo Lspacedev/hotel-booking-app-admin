@@ -9,8 +9,8 @@ function DashboardNav() {
   }
   return (
     <div className="DashboardNav">
-      <div className="profile" onClick={navigateProfile}>
-        Profile
+      <div className="profile-icon" onClick={navigateProfile}>
+        <img src="/images/profile.png" />
       </div>
     </div>
   );

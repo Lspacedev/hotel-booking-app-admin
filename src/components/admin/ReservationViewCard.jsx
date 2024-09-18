@@ -4,7 +4,6 @@ import { collection, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import { db } from "../../config/firebase";
 import { IoMdArrowBack } from "react-icons/io";
 
-
 function ReservationViewCard() {
   const navigation = useNavigate();
 
@@ -39,7 +38,7 @@ function ReservationViewCard() {
       "You are about to approve this reservation. Continue?"
     );
 
-    if(approveConfirmation){
+    if (approveConfirmation) {
       //update booking obj in accomodation booking
       try {
         const accomodationsCollection = collection(
@@ -49,11 +48,14 @@ function ReservationViewCard() {
           "accomodations"
         );
         const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
-        console.log(accomodationRef);
         await updateDoc(accomodationRef, {
           bookings: newBookings,
         });
         alert("updated bookings");
+        let userId = bookingObj.userId;
+        let roomName = bookingObj.roomId;
+        let status = "approved";
+        addNotification(userId, roomName, status);
       } catch (err) {
         console.log(err);
       }
@@ -74,7 +76,7 @@ function ReservationViewCard() {
     let rejectConfirmation = window.confirm(
       "You are about to reject this reservation. Continue?"
     );
-    if(rejectConfirmation){
+    if (rejectConfirmation) {
       //update booking obj in accomodation booking
       try {
         const accomodationsCollection = collection(
@@ -84,18 +86,37 @@ function ReservationViewCard() {
           "accomodations"
         );
         const accomodationRef = doc(accomodationsCollection, bookingObj.roomId);
-        console.log(accomodationRef);
         await updateDoc(accomodationRef, {
           bookings: newBookings,
         });
         alert("updated bookings");
+        let userId = bookingObj.userId;
+        let roomName = bookingObj.roomId;
+        let status = "rejected";
+        addNotification(userId, roomName, status);
       } catch (err) {
         console.log(err);
       }
-   }
+    }
   }
   function goBack() {
     navigation("/home/reservations");
+  }
+  async function addNotification(userId, roomName, status) {
+    try {
+      const usersCollection = collection(db, "users");
+      const userRef = doc(usersCollection, userId);
+
+      await updateDoc(userRef, {
+        notifications: arrayUnion({
+          message: `Your booking for room ${roomName} has been ${status}`,
+        }),
+      });
+
+      alert("added notification");
+    } catch (err) {
+      console.log(err);
+    }
   }
   return (
     <div className="ReservationViewCard">
@@ -107,7 +128,7 @@ function ReservationViewCard() {
           <h3 className="guest-name">User Id: {bookingObj.userId}</h3>
           <div className="view-checkin-out">
             <div>
-              <p>Check in</p>
+              <p>Check in </p>
               <h6>{bookingObj.checkIn}</h6>
             </div>
             <div>

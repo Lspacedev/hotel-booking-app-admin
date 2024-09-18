@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { db } from "../../config/firebase";
-import { collection, collectionGroup, addDoc } from "firebase/firestore";
-import {
-  getStorage,
-  getDownloadURL,
-  ref,
-  listAll,
-  uploadBytes,
-} from "firebase/storage";
+import { collection, addDoc } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../config/firebase";
 
 function AccomodationForm({ toggleClicked }) {
@@ -73,7 +67,6 @@ function AccomodationForm({ toggleClicked }) {
         ),
         obj
       );
-      console.log(docRef);
       uploadFile(docRef.id, img1);
       uploadFile(docRef.id, img2);
       uploadFile(docRef.id, img3);
@@ -97,7 +90,6 @@ function AccomodationForm({ toggleClicked }) {
           </div>
         </div>
         <form>
-          
           <div className="room_name-hotel_name">
             <label htmlFor="room_name">
               Room Name
@@ -134,14 +126,11 @@ function AccomodationForm({ toggleClicked }) {
               </select>
             </label>
           </div>
-          <div className="room_type">
-
-          </div>
+          <div className="room_type"></div>
           <div className="gallery">
             <label htmlFor="gallery">
               Gallery
               <div>
-
                 <input
                   type="file"
                   name="gallery"
@@ -166,7 +155,7 @@ function AccomodationForm({ toggleClicked }) {
               </div>
             </label>
           </div>
-       
+
           <div className="price">
             <label htmlFor="price">
               Price
@@ -214,7 +203,6 @@ function AccomodationForm({ toggleClicked }) {
               />
             </label>
           </div>
-   
 
           <div className="amenities">
             <label htmlFor="amenities">

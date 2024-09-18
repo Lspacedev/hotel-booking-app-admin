@@ -27,10 +27,6 @@ function ReservationCard({ booking }) {
           <p>Status</p>
           <p>{booking.status}</p>
         </div>
-        {/* <div>
-          <p>Date</p>
-          <p>date</p>
-        </div> */}
       </div>
       <div className="v-btn">
         <button onClick={handleNavigateSubPage}>View</button>

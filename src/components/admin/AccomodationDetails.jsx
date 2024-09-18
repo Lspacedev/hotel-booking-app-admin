@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 import { IoMdArrowBack } from "react-icons/io";
 
 function AccomodationDetails() {
+  const [loading, setLoading] = useState(true);
+
   const [edit, setEdit] = useState(false);
   const [obj, setObj] = useState({
     price: "",
@@ -34,6 +36,7 @@ function AccomodationDetails() {
           setImages((prev) => [...prev, url]);
         });
       })
+      .finally(() => setLoading(false))
       .catch((error) => {
         // Uh-oh, an error occurred!
       });
@@ -92,28 +95,26 @@ function AccomodationDetails() {
     let updateConfirmation = window.confirm(
       "You are about to update accomodation information. Continue?"
     );
-      if(updateConfirmation){
-
-      
-        //update accomodation to firestore
-        try {
-          const accomodationsCollection = collection(
-            db,
-            "admin",
-            "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
-            "accomodations"
-          );
-          const accomodationRef = doc(accomodationsCollection, accomodation_id);
-          if (JSON.stringify(updatedObj) !== "{}") {
-            await updateDoc(accomodationRef, updatedObj);
-            alert("Updated successfully");
-          } else {
-            alert("Nothing to update");
-          }
-        } catch (err) {
-          console.log(err);
+    if (updateConfirmation) {
+      //update accomodation to firestore
+      try {
+        const accomodationsCollection = collection(
+          db,
+          "admin",
+          "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
+          "accomodations"
+        );
+        const accomodationRef = doc(accomodationsCollection, accomodation_id);
+        if (JSON.stringify(updatedObj) !== "{}") {
+          await updateDoc(accomodationRef, updatedObj);
+          alert("Updated successfully");
+        } else {
+          alert("Nothing to update");
         }
+      } catch (err) {
+        console.log(err);
       }
+    }
     // toggleClicked();
   }
 
@@ -121,7 +122,7 @@ function AccomodationDetails() {
     let deleteConfirmation = window.confirm(
       "Are you sure you want to delete accomodation?"
     );
-    if(deleteConfirmation){
+    if (deleteConfirmation) {
       const accomodationsCollection = collection(
         db,
         "admin",
@@ -141,6 +142,8 @@ function AccomodationDetails() {
   function goBack() {
     navigation("/home/accomodations");
   }
+  if (loading) return <div className="Loading">Loading...</div>;
+
   return (
     <div className="AccomodationDetails">
       <IoMdArrowBack onClick={goBack} className="back" />
@@ -181,17 +184,7 @@ function AccomodationDetails() {
                 </select>
               </label>
             </div>
-            {/* <div className="gallery">
-            <label htmlFor="gallery">
-              Gallery
-              <input
-                type="file"
-                id="gallery"
-                name="gallery"
-                onChange={(e) => handleImageUpload(e)}
-              />
-            </label>
-          </div> */}
+
             <div className="hotel_name">
               <label htmlFor="hotel_name">
                 Hotel Name
@@ -244,6 +237,7 @@ function AccomodationDetails() {
                 />
               </label>
             </div>
+            <br />
             <div className="guests">
               <label htmlFor="guests">
                 Nr of guests
@@ -256,6 +250,7 @@ function AccomodationDetails() {
                 />
               </label>
             </div>
+            <br />
             <div className="amenities">
               <label htmlFor="amenities">
                 Amenities

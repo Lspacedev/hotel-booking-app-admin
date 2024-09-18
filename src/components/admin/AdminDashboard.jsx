@@ -42,11 +42,6 @@ function AdminDashboard() {
       <div className="Main">
         <DashboardNav />
         <Outlet />
-        {/* <Reservations /> */}
-        {/* <ReservationViewCard /> */}
-        {/* <Accomodations /> */}
-        {/* <AccomodationDetails acc={{ edit: false }} /> */}
-        {/* <AdminProfile /> */}
       </div>
     </div>
   );

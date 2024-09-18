@@ -74,7 +74,6 @@ body {
   text-align: center;
 }
 
-
 /* Categories */
 .Categories {
   margin: 10px 0px 25px 0px;
@@ -408,7 +407,7 @@ body {
 
 .ReservationCard {
   width: 80%;
-  padding: 15px;
+  padding: 20px;
   box-shadow: 1px 1px 5px #bbb;
 }
 .v-btn {
@@ -448,11 +447,13 @@ body {
   padding: 25px;
   margin: 50px 100px;
 }
-
+.guest-name {
+  word-break: break-all;
+}
 .view-checkin-out {
   display: flex;
   flex-direction: row;
-
+  gap: 10px;
   align-items: center;
 }
 .view-checkin-outdiv {
@@ -526,7 +527,6 @@ body {
 .AccomodationDetails .img {
   height: 400px;
   width: 70%;
-  background-color: #bbb;
 }
 .AccomodationDetails img {
   height: 100%;
@@ -540,8 +540,6 @@ body {
   padding: 10px 15px;
   margin: 2px;
 }
-
-
 
 .AccomodationForm {
   position: fixed;
@@ -569,14 +567,12 @@ body {
   margin: 0 auto 0 auto;
   padding: 15px;
   width: 700px;
- 
-  
 
   background-color: white;
 }
 .form-div form input[type="file"] {
   font-size: 0.7rem;
- 
+
   outline: none;
   border: none;
 }
@@ -748,6 +744,11 @@ select {
 .profile-pic img {
   width: 200px;
   height: 200px;
+}
+.profile-icon img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }
 .AdminLogin {
   height: 100vh;
@@ -989,6 +990,12 @@ select {
   height: 80%;
   border: 1px dashed black;
 }
+/*Loading*/
+.Loading {
+  height: calc(100vh - 220px);
+  text-align: center;
+  margin: 15px;
+}
 
 /* Footer */
 
@@ -1084,13 +1091,9 @@ select {
 }
 
 @media screen and (max-width: 768px) {
-  .SearchAccomodations {
+  .reservations-div {
     flex-direction: column;
   }
-  .SearchAccomodations input {
-    width: 100%;
-  }
-
   .ShowCase h3 {
     top: 80px;
     left: 50%;
@@ -1119,6 +1122,58 @@ select {
     display: flex;
     align-items: center;
   }
+  .AdminDashboard {
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .Main {
+    flex: 8;
+    height: inherit;
+    width: 100%;
+    background-color: white;
+  }
+
+  .Sidebar {
+    flex: 2;
+    width: 100%;
+  }
+  .sidebar-links {
+    flex: 90%;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .AccomodationForm {
+    padding: 0px;
+  }
+  .AccomodationForm .form-div {
+    width: 80%;
+    padding: 0px;
+  }
+  .AccomodationForm .form-div form {
+    margin: 0 auto 0 auto;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .AccomodationForm form input {
+    width: 100%;
+    margin: 5px 0px;
+    float: right;
+  }
+  .AccomodationForm .form-close {
+    margin-left: -205px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .AccCard {
+    flex-direction: column;
+  }
+  .ReservationViewCard {
+    padding: 5px;
+    margin: 5px 00px;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -1140,6 +1195,9 @@ select {
   .Card .img {
     width: 80%;
   }
+  .AccomodationDetails .img {
+    width: 100%;
+  }
 }
 @media screen and (max-width: 375px) {
   .Nav {
@@ -1158,5 +1216,12 @@ select {
     top: 60px;
     left: 50%;
     width: 80%;
+  }
+  .reservations-div div {
+    padding: 2px;
+  }
+  .ReservationCard {
+    padding: 25px;
+    width: 100%;
   }
 }

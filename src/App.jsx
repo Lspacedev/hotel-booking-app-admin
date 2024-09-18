@@ -19,7 +19,7 @@ import { onAuthStateChanged } from "firebase/auth";
 
 import { db } from "./config/firebase";
 import { useDispatch } from "react-redux";
-import { setAccomodations, setAdmin } from "./app/accomodationsSlice";
+import { setAccomodations } from "./app/accomodationsSlice";
 
 import AdminProfile from "./components/profiles/AdminProfile";
 
@@ -34,11 +34,9 @@ function App() {
         const uid = user.uid;
         setUser(user);
         // ...
-        console.log(user);
       } else {
         // User is signed out
         // ...
-        console.log("user is logged out");
       }
     });
   }, []);

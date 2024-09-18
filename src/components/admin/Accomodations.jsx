@@ -7,7 +7,7 @@ function Accomodations() {
   const accomodations = useSelector(
     (state) => state.accomodations.accomodations
   );
-  console.log(accomodations);
+
   return (
     <div className="Accomodations">
       <AddAccomodation />
