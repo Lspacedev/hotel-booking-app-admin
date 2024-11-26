@@ -14,7 +14,9 @@ function AdminLogin() {
         alert("Log in successfully");
         navigation("/home");
       })
-      .catch((err) => {});
+      .catch((err) => {
+        alert(err.message);
+      });
   }
 
   return (

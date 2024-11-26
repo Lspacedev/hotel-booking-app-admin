@@ -8,7 +8,7 @@ function AccomodationForm({ toggleClicked }) {
   const [img1, setImg1] = useState("");
   const [img2, setImg2] = useState("");
   const [img3, setImg3] = useState("");
-
+  const [images, setImages] = useState([]);
   const [obj, setObj] = useState({
     price: "",
     room_name: "",
@@ -31,18 +31,19 @@ function AccomodationForm({ toggleClicked }) {
     setObj((prev) => ({ ...prev, [name]: value }));
   }
 
-  const uploadFile = (id, img) => {
+  const uploadFile = async (img) => {
     if (img === null) {
       alert("Please select an image");
       return;
     }
-    const imageRef = ref(storage, `${id}/${img.name}`);
+    const imageRef = ref(storage, `${img.name}`);
 
     uploadBytes(imageRef, img)
       .then((snapshot) => {
         getDownloadURL(snapshot.ref)
           .then((url) => {
             console.log(url);
+            setImages((prev) => [...prev, url]);
           })
           .catch((error) => {
             console.log(error);
@@ -58,6 +59,9 @@ function AccomodationForm({ toggleClicked }) {
     //add accomodation to firestore
 
     try {
+      await uploadFile(img1);
+      await uploadFile(img2);
+      await uploadFile(img3);
       const docRef = await addDoc(
         collection(
           db,
@@ -65,11 +69,12 @@ function AccomodationForm({ toggleClicked }) {
           "A2Kvj5vTHdfJde8Sl8KV8rw1e2v1",
           "accomodations"
         ),
-        obj
+        {
+          ...obj,
+          images,
+        }
       );
-      uploadFile(docRef.id, img1);
-      uploadFile(docRef.id, img2);
-      uploadFile(docRef.id, img3);
+
       alert("Added successfully");
     } catch (err) {
       console.log(err);

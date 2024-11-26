@@ -24,23 +24,8 @@ function AccomodationDetails() {
     policies: "",
     description: "",
   });
-  const [images, setImages] = useState([]);
   const storage = getStorage();
   const { accomodation_id } = useParams();
-  useEffect(() => {
-    const imagesRef = ref(storage, accomodation_id);
-    listAll(imagesRef)
-      .then((res) => {
-        res.items.forEach(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          setImages((prev) => [...prev, url]);
-        });
-      })
-      .finally(() => setLoading(false))
-      .catch((error) => {
-        // Uh-oh, an error occurred!
-      });
-  }, []);
 
   //use accomodation_id to find accomodation in array
   const accomodations = useSelector(
@@ -142,7 +127,7 @@ function AccomodationDetails() {
   function goBack() {
     navigation("/home/accomodations");
   }
-  if (loading) return <div className="Loading">Loading...</div>;
+  //if (loading) return <div className="Loading">Loading...</div>;
 
   return (
     <div className="AccomodationDetails">
@@ -299,7 +284,9 @@ function AccomodationDetails() {
               {accomodation && accomodation.address}
             </p>
             <div className="img">
-              {images.length > 0 && <img src={images[0]} />}
+              {accomodation && accomodation.images.length > 0 && (
+                <img src={accomodation.images[0]} />
+              )}
             </div>
 
             <div className="accomodation-info">

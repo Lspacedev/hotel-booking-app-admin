@@ -3,21 +3,8 @@ import { useState, useEffect } from "react";
 import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
 
 function AccCard({ accomodation }) {
-  const [images, setImages] = useState([]);
   const storage = getStorage();
-  useEffect(() => {
-    const imagesRef = ref(storage, accomodation.id);
-    listAll(imagesRef)
-      .then((res) => {
-        res.items.forEach(async (itemRef) => {
-          const url = await getDownloadURL(itemRef);
-          setImages((prev) => [...prev, url]);
-        });
-      })
-      .catch((error) => {
-        // Uh-oh, an error occurred!
-      });
-  }, []);
+  console.log(accomodation.images.length === 0 ? accomodation.id : "jj");
   const navigation = useNavigate();
 
   function handleNavigateSubPage() {
@@ -25,7 +12,9 @@ function AccCard({ accomodation }) {
   }
   return (
     <div className="AccCard" onClick={handleNavigateSubPage}>
-      <div className="img">{images.length > 0 && <img src={images[0]} />}</div>
+      <div className="img">
+        {accomodation.images.length > 0 && <img src={accomodation.images[0]} />}
+      </div>
       <div className="acc-card-info">
         <div className="side-one">
           <h4>{accomodation.room_name}</h4>
