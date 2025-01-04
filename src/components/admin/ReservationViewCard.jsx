@@ -56,6 +56,8 @@ function ReservationViewCard() {
         let roomName = bookingObj.roomId;
         let status = "approved";
         addNotification(userId, roomName, status);
+        navigation("/home/reservations");
+        navigation(0);
       } catch (err) {
         console.log(err);
       }
@@ -94,6 +96,8 @@ function ReservationViewCard() {
         let roomName = bookingObj.roomId;
         let status = "rejected";
         addNotification(userId, roomName, status);
+        navigation("/home/reservations");
+        navigation(0);
       } catch (err) {
         console.log(err);
       }

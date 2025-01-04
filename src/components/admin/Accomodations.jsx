@@ -7,12 +7,13 @@ function Accomodations() {
   const accomodations = useSelector(
     (state) => state.accomodations.accomodations
   );
-
   return (
     <div className="Accomodations">
-      <AddAccomodation />
+      {(typeof accomodation_id === "undefined" || accomodation_id === "") && (
+        <AddAccomodation />
+      )}
 
-      {accomodation_id !== "" && typeof accomodation_id !== "undefined" ? (
+      {typeof accomodation_id !== "undefined" && accomodation_id !== "" ? (
         <Outlet />
       ) : (
         <div className="accomodations-div">

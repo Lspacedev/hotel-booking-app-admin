@@ -3,11 +3,13 @@ import { db } from "../../config/firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { storage } from "../../config/firebase";
+import { IoCloseOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 function AccomodationForm({ toggleClicked }) {
-  const [img1, setImg1] = useState("");
-  const [img2, setImg2] = useState("");
-  const [img3, setImg3] = useState("");
+  const [img1, setImg1] = useState(null);
+  const [img2, setImg2] = useState(null);
+  const [img3, setImg3] = useState(null);
   const [images, setImages] = useState([]);
   const [obj, setObj] = useState({
     price: "",
@@ -24,6 +26,7 @@ function AccomodationForm({ toggleClicked }) {
     bookings: [],
     reviews: [],
   });
+  const navigation = useNavigate();
 
   function handleChange(e) {
     e.preventDefault();
@@ -36,32 +39,45 @@ function AccomodationForm({ toggleClicked }) {
       alert("Please select an image");
       return;
     }
-    const imageRef = ref(storage, `${img.name}`);
-
-    uploadBytes(imageRef, img)
-      .then((snapshot) => {
-        getDownloadURL(snapshot.ref)
-          .then((url) => {
-            console.log(url);
-            setImages((prev) => [...prev, url]);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const imageRef = ref(storage, `${img.name}`);
+      const snapshot = await uploadBytes(imageRef, img);
+      const url = await getDownloadURL(snapshot.ref);
+      return url;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (
+      img1 === null ||
+      img2 === null ||
+      img3 === null ||
+      obj.price === "" ||
+      obj.room_name === "" ||
+      obj.address === "" ||
+      obj.rating === "" ||
+      obj.guests === "" ||
+      obj.amenities === "" ||
+      obj.policies === "" ||
+      obj.description === ""
+    ) {
+      alert("Please enter all fields");
+      return;
+    }
+    let arr = [];
     //add accomodation to firestore
 
     try {
-      await uploadFile(img1);
-      await uploadFile(img2);
-      await uploadFile(img3);
+      const url1 = await uploadFile(img1);
+      const url2 = await uploadFile(img2);
+      const url3 = await uploadFile(img3);
+      arr.push(url1);
+      arr.push(url2);
+      arr.push(url3);
+
       const docRef = await addDoc(
         collection(
           db,
@@ -71,15 +87,16 @@ function AccomodationForm({ toggleClicked }) {
         ),
         {
           ...obj,
-          images,
+          images: arr,
         }
       );
 
       alert("Added successfully");
+      navigation(0);
     } catch (err) {
       console.log(err);
     }
-    toggleClicked();
+    // toggleClicked();
   }
 
   function handleFormClose() {
@@ -91,7 +108,7 @@ function AccomodationForm({ toggleClicked }) {
       <div className="form-div">
         <div className="form-title-close">
           <div className="form-close" onClick={handleFormClose}>
-            x
+            <IoCloseOutline />
           </div>
         </div>
         <form>
@@ -191,6 +208,8 @@ function AccomodationForm({ toggleClicked }) {
               Rating
               <input
                 type="number"
+                max="5"
+                min="1"
                 id="rating"
                 name="rating"
                 onChange={(e) => handleChange(e)}
@@ -201,6 +220,8 @@ function AccomodationForm({ toggleClicked }) {
               Nr of guests
               <input
                 type="number"
+                max="15"
+                min="1"
                 id="guests"
                 name="guests"
                 onChange={(e) => handleChange(e)}
@@ -246,7 +267,7 @@ function AccomodationForm({ toggleClicked }) {
           <input
             id="task-add-submit"
             type="submit"
-            value="submit"
+            value="Submit"
             onClick={handleSubmit}
           ></input>
         </form>

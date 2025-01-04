@@ -12,7 +12,12 @@ body {
   justify-content: space-around;
   padding: 25px;
 }
-
+.Nav .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
 .logo {
   font-size: 1.3rem;
   font-weight: bold;
@@ -27,51 +32,43 @@ body {
 
   color: #36363a;
 }
+.nav-links .login-btn {
+  border: 1px solid #1c1c1f;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.nav-links .login-btn:hover {
+  border: 1px solid #626267;
+}
 
 .nav-links div {
   cursor: pointer;
+}
+.HomePage {
+  display: flex;
+  flex-direction: column;
 }
 .HomePage h3 {
   text-align: center;
 }
 /* ShowCase */
 .ShowCase {
-  height: 450px;
+  height: 700px;
   display: flex;
   flex-direction: column;
-
-  position: relative;
-}
-
-.showcase-img {
-  height: inherit;
-  flex: 90%;
-  width: 100%;
-
-  background-color: #e0e0e0;
-
-  position: relative;
-}
-.showcase-img img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  opacity: 0.9;
-}
-.showcase-bottom {
-  flex: 10%;
-  background-color: #adadad;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/showcase1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .ShowCase h3 {
-  position: absolute;
-  top: 200px;
-  left: 50%;
-  transform: translate(-50%, 0%);
   width: 70%;
   font-size: 2.5rem;
   color: white;
-  text-align: center;
 }
 
 /* Categories */
@@ -208,15 +205,20 @@ body {
   flex-direction: column;
 
   text-align: center;
-  padding: 15px 5px 50px 5px;
-  background-color: #303032;
+  padding: 10px 5px;
+  background-color: #1c1c1f;
+  gap: 50px;
 }
-
-.Sidebar .logo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #a6a670;
-  margin-bottom: 50px;
+.Sidebar .logo-container {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.logo-container .icon {
+  font-size: 34px;
+  color: #585851;
 }
 .logout {
   cursor: pointer;
@@ -234,18 +236,34 @@ body {
   flex-direction: column;
   gap: 25px;
 }
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #b2bd7e;
+}
 
-.sidebar-links div {
+.sidebar-links .link {
   cursor: pointer;
-  margin: 0px 25px;
+  margin: 0px 80px;
   padding: 10px 0px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-.sidebar-links div:hover {
+
+.sidebar-links div .icon {
+  flex: 1;
+  font-size: 32px;
+}
+
+.sidebar-links div .text {
+  flex: 2;
+  text-align: start;
+}
+
+.sidebar-links .link:hover {
   background-color: #a6a670;
-  border-radius: 2px;
+  border-radius: 25px;
 }
 
 /* Bookings */
@@ -409,6 +427,7 @@ body {
   width: 80%;
   padding: 20px;
   box-shadow: 1px 1px 5px #bbb;
+  border-radius: 5px;
 }
 .v-btn {
   text-align: end;
@@ -419,15 +438,16 @@ body {
   color: white;
   background-color: #a6a670;
   margin: 0px;
+  border-radius: 5px;
+}
+.v-btn button:hover {
+  background-color: #969657;
 }
 .ReservationCard p {
   margin: 0px;
   padding: 0px;
 }
-.ReservationCard h8 {
-  margin: 0px;
-  padding: 0px;
-}
+
 .checkin-out,
 .status-date {
   display: flex;
@@ -447,6 +467,10 @@ body {
   padding: 25px;
   margin: 50px 100px;
 }
+
+.ReservationCard button {
+  cursor: pointer;
+}
 .guest-name {
   word-break: break-all;
 }
@@ -463,14 +487,17 @@ body {
   text-align: end;
 }
 .view-btns button {
-  background-color: #a6a670;
+  background-color: #1e2f23;
   border: none;
   color: white;
   padding: 5px 15px;
   margin: 2px;
   cursor: pointer;
+  border-radius: 25px;
 }
-
+.view-btns button:hover {
+  background-color: #36363a;
+}
 /* Accomodations */
 .accomodations-div {
   display: flex;
@@ -483,7 +510,7 @@ body {
   width: 70%;
   display: flex;
   gap: 15px;
-  border-radius: 5px;
+  border-radius: 25px;
   box-shadow: 1px 1px 5px #bbb;
   color: #36363a;
   cursor: pointer;
@@ -492,10 +519,12 @@ body {
   flex: 50%;
   height: 200px;
   background-color: #bbb;
+  border-radius: 25px;
 }
 .AccCard img {
   width: 100%;
   height: 100%;
+  border-radius: 25px;
 }
 
 .acc-card-info {
@@ -513,10 +542,14 @@ body {
   background-color: #a6a670;
   border: none;
   padding: 5px 15px;
-  margin: 5px;
+  margin: 10px 15px 10px 0px;
   color: white;
+  cursor: pointer;
+  border-radius: 25px;
 }
-
+.AddAccomodation button:hover {
+  background-color: #969657;
+}
 /* AccomodationDetails */
 .AccomodationDetails {
   width: 70%;
@@ -527,20 +560,26 @@ body {
 .AccomodationDetails .img {
   height: 400px;
   width: 70%;
+  border-radius: 25px;
 }
 .AccomodationDetails img {
   height: 100%;
   width: 100%;
+  border-radius: 25px;
 }
 
 .update-delete-btns button {
-  background-color: #a6a670;
+  background-color: #1e2f23;
   color: white;
   border: none;
   padding: 10px 15px;
   margin: 2px;
+  border-radius: 25px;
 }
-
+.update-delete-btns button:hover {
+  background-color: #36363a;
+  cursor: pointer;
+}
 .AccomodationForm {
   position: fixed;
   width: 100%;
@@ -552,7 +591,7 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
   cursor: pointer;
-  padding: 0px;
+  padding: 5px;
   margin: 0px;
   display: flex;
   justify-content: center;
@@ -562,13 +601,15 @@ body {
 
 .form-div {
   margin: 20px 0px;
+  border-radius: 25px;
 }
 .form-div form {
   margin: 0 auto 0 auto;
-  padding: 15px;
+  padding: 25px;
   width: 700px;
 
   background-color: white;
+  border-radius: 25px;
 }
 .form-div form input[type="file"] {
   font-size: 0.7rem;
@@ -576,8 +617,10 @@ body {
   outline: none;
   border: none;
 }
-.form-div form input {
-  margin: 0px 0px;
+.form-div form input,
+select,
+textarea {
+  margin: 0px 5px;
   padding: 5px 0px;
   outline: none;
   border: 1px solid #bbb;
@@ -587,7 +630,7 @@ body {
 .form-div form label {
   width: 100%;
   padding: 0px;
-  margin: 0px;
+  margin: 0px 5px;
   color: rgb(133, 133, 133);
   cursor: pointer;
   display: flex;
@@ -602,7 +645,7 @@ body {
   cursor: pointer;
 }
 .form-close:hover {
-  color: #a6a670;
+  color: #626267;
 }
 .rating-guests {
   display: flex;
@@ -617,7 +660,16 @@ body {
   display: flex;
   align-items: center;
 }
-
+#task-add-submit {
+  padding: 10px 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  background-color: #303032;
+  color: white;
+  cursor: pointer;
+}
 .accomodation-update-form input {
   margin: 0px 0px;
   padding: 5px 0px;
@@ -643,6 +695,7 @@ body {
   color: white;
   border: none;
   cursor: pointer;
+  border-radius: 25px;
 }
 
 .update:hover {
@@ -650,12 +703,15 @@ body {
 }
 
 .back {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   cursor: pointer;
+  padding: 0px;
+  border-radius: 50%;
+  margin-right: 0px;
 }
 
 .back:hover {
-  color: #a6a670;
+  background-color: #6262673f;
 }
 /* User Login */
 .UserLogin {
@@ -744,17 +800,35 @@ select {
 .profile-pic img {
   width: 200px;
   height: 200px;
+  border-radius: 50%;
 }
 .profile-icon img {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  cursor: pointer;
+}
+.DashboardNav .home {
+  color: #1c1c1f;
+  font-size: 1.2rem;
+  margin: 0px 20px;
+}
+.DashboardNav .home:hover {
+  color: #36363a;
+  cursor: pointer;
+}
+.login-register-container {
+  width: 70%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .AdminLogin {
   height: 100vh;
   display: flex;
   align-items: center;
-
+  justify-content: center;
   padding: 0px 50px;
 }
 
@@ -788,11 +862,11 @@ select {
   border: 1px solid #bbb;
 
   margin: 15px 0;
-  padding: 5px 0px;
-  width: 100%;
+  padding: 5px;
+  width: 98%;
   outline: none;
   border: 1px solid #bbb;
-  border-radius: 5px;
+  border-radius: 25px;
   display: inline-block;
 }
 .AdminLogin .form div label {
@@ -805,13 +879,14 @@ select {
 
 .AdminLogin .submit-btn {
   margin: 5px 0px;
-  padding: 5px 0px;
+  padding: 5px;
   width: 100%;
-  background-color: #a6a670;
+  background-color: #1c1c1f;
   color: white;
   outline: none;
   border: none;
   cursor: pointer;
+  border-radius: 25px;
 }
 
 .AdminLogin .submit-btn:hover {
@@ -822,7 +897,8 @@ select {
   flex: 40%;
 
   height: 500px;
-  background-color: #bbb;
+  border-radius: 25px;
+  box-shadow: -2px 0px 3px 0px #bbbbbb67;
 }
 
 .login-img img {
@@ -1008,7 +1084,6 @@ select {
   font-family: "Ubuntu";
 
   padding-top: 75px;
-  margin-top: 150px;
 }
 
 .footer-info {

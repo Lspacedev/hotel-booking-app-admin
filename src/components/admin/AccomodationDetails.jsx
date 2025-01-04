@@ -7,7 +7,7 @@ import { db } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { IoMdArrowBack } from "react-icons/io";
-
+import { IoCloseOutline } from "react-icons/io5";
 function AccomodationDetails() {
   const [loading, setLoading] = useState(true);
 
@@ -34,6 +34,24 @@ function AccomodationDetails() {
   const [accomodation] = accomodations.filter(
     (accomodation) => accomodation.id === accomodation_id
   );
+
+  useEffect(() => {
+    if (typeof accomodation !== "undefined") {
+      setLoading(false);
+      setObj((prev) => ({ ...prev, room_name: accomodation.room_name }));
+      setObj((prev) => ({ ...prev, price: accomodation.price }));
+      setObj((prev) => ({ ...prev, hotel_name: accomodation.hotel_name }));
+      setObj((prev) => ({ ...prev, address: accomodation.address }));
+      setObj((prev) => ({ ...prev, amenities: accomodation.amenities }));
+      setObj((prev) => ({ ...prev, policies: accomodation.policies }));
+      setObj((prev) => ({ ...prev, description: accomodation.description }));
+      setObj((prev) => ({ ...prev, rating: accomodation.rating }));
+      setObj((prev) => ({ ...prev, guests: accomodation.guests }));
+      setObj((prev) => ({ ...prev, room_type: accomodation.room_type }));
+    } else {
+      setLoading(true);
+    }
+  }, [accomodation]);
   const navigation = useNavigate();
   function handleChange(e) {
     e.preventDefault();
@@ -93,6 +111,8 @@ function AccomodationDetails() {
         if (JSON.stringify(updatedObj) !== "{}") {
           await updateDoc(accomodationRef, updatedObj);
           alert("Updated successfully");
+          navigation("/home/accomodations/" + accomodation_id);
+          navigation(0);
         } else {
           alert("Nothing to update");
         }
@@ -119,6 +139,7 @@ function AccomodationDetails() {
         await deleteDoc(docRef);
         alert("deleted succesfully");
         navigation("/home/accomodations");
+        navigation(0);
       } catch (error) {
         console.log(error);
       }
@@ -127,7 +148,7 @@ function AccomodationDetails() {
   function goBack() {
     navigation("/home/accomodations");
   }
-  //if (loading) return <div className="Loading">Loading...</div>;
+  if (loading) return <div className="Loading">Loading...</div>;
 
   return (
     <div className="AccomodationDetails">
@@ -137,9 +158,8 @@ function AccomodationDetails() {
         {edit === true ? (
           <div className="accomodation-update-form">
             <div className="form-title-close">
-              <h3>Enter Accomodation Information</h3>
               <div className="form-close" onClick={() => setEdit(false)}>
-                x
+                <IoCloseOutline />
               </div>
             </div>
 
@@ -163,6 +183,7 @@ function AccomodationDetails() {
                   onChange={(e) => handleChange(e)}
                   value={obj.room_type}
                 >
+                  <option></option>
                   <option value="Standard">Standard</option>
                   <option value="Deluxe">Deluxe</option>
                   <option value="Suite">Suite</option>
@@ -215,6 +236,8 @@ function AccomodationDetails() {
                 Rating
                 <input
                   type="number"
+                  max="5"
+                  min="1"
                   id="rating"
                   name="rating"
                   onChange={(e) => handleChange(e)}
@@ -228,6 +251,8 @@ function AccomodationDetails() {
                 Nr of guests
                 <input
                   type="number"
+                  max="15"
+                  min="1"
                   id="guests"
                   name="guests"
                   onChange={(e) => handleChange(e)}

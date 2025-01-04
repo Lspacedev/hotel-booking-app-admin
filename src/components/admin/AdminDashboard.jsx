@@ -1,15 +1,14 @@
 import Sidebar from "../dashboard/Sidebar";
 import DashboardNav from "../dashboard/DashboardNav";
-import Reservations from "./Reservations";
-import ReservationViewCard from "./ReservationViewCard";
-import Accomodations from "./Accomodations";
-import AccomodationDetails from "./AccomodationDetails";
-import AdminProfile from "../profiles/AdminProfile";
-import { Link, Outlet } from "react-router-dom";
-import { getAuth, signOut } from "firebase/auth";
+
+import { Outlet } from "react-router-dom";
+import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { MdOutlineLocalHotel } from "react-icons/md";
+import { MdOutlineReceiptLong } from "react-icons/md";
+import { FiLogOut } from "react-icons/fi";
+
 function AdminDashboard() {
   const navigation = useNavigate();
 
@@ -31,12 +30,21 @@ function AdminDashboard() {
   return (
     <div className="AdminDashboard">
       <Sidebar>
-        <div onClick={navigateAccomodation}>Accomodations</div>
+        <div className="link" onClick={navigateAccomodation}>
+          <MdOutlineLocalHotel className="icon" />
+          <div className="text"> Accomodations</div>
+        </div>
 
-        <div onClick={navigateReservations}>Reservations</div>
+        <div className="link" onClick={navigateReservations}>
+          <MdOutlineReceiptLong className="icon" />
 
-        <div className="logout" onClick={logOut}>
-          Logout
+          <div className="text">Reservations</div>
+        </div>
+
+        <div className="logout link" onClick={logOut}>
+          <FiLogOut className="icon" />
+
+          <div className="text">Logout</div>
         </div>
       </Sidebar>
       <div className="Main">

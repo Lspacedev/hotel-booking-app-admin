@@ -1,5 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
+import { FaHotel } from "react-icons/fa";
 function Nav() {
   const navigation = useNavigate();
 
@@ -8,9 +8,14 @@ function Nav() {
   }
   return (
     <div className="Nav">
-      <div className="logo">ZaHotels.com | Admin</div>
+      <div className="logo-container" onClick={() => navigation("/")}>
+        <FaHotel className="icon" />
+        <h3 className="logo">ZaHotels.com|Admin</h3>
+      </div>
       <div className="nav-links">
-        <div onClick={navigateLogin}>Login</div>
+        <div className="login-btn" onClick={navigateLogin}>
+          Login
+        </div>
       </div>
     </div>
   );
