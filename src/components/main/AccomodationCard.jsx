@@ -12,11 +12,6 @@ function AccomodationCard({ title }) {
     const imagesRef = ref(storage, result_id);
     listAll(imagesRef)
       .then((res) => {
-        // res.prefixes.forEach((folderRef) => {
-        //   // All the prefixes under listRef.
-        //   // You may call listAll() recursively on them.
-        //   console.log({ folderRef });
-        // });
         res.items.forEach(async (itemRef) => {
           const url = await getDownloadURL(itemRef);
           // All the items under listRef.
