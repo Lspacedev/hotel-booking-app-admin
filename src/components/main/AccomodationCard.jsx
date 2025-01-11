@@ -23,36 +23,6 @@ function AccomodationCard({ title }) {
       });
   }, []);
 
-  /* Slider */
-  // console.log(slidesRef);
-  // let slideIndex = 1;
-  // showSlides(slideIndex);
-
-  // // Next/previous controls
-  // function plusSlides(n) {
-  //   showSlides((slideIndex += n));
-  // }
-
-  // Thumbnail image controls
-  // function currentSlide(n) {
-  //   showSlides((slideIndex = n));
-  // }
-
-  // function showSlides(n) {
-  //   let i;
-
-  //   if (n > slidesRef.length) {
-  //     slideIndex = 1;
-  //   }
-  //   if (n < 1) {
-  //     slideIndex = slidesRef.length;
-  //   }
-  //   for (i = 0; i < slidesRef.length; i++) {
-  //     slidesRef[i].style.display = "none";
-  //   }
-  //   slidesRef[slideIndex - 1].styles.display = "block";
-  // }
-
   return (
     <div className="AccomodationCard">
       {JSON.stringify(images)}
