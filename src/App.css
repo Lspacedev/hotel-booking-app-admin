@@ -1,0 +1,1301 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0px;
+}
+
+/* Nav */
+.Nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 25px;
+}
+.Nav .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+
+  color: #626267;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  color: #36363a;
+}
+.nav-links .login-btn {
+  border: 1px solid #1c1c1f;
+  padding: 10px 25px;
+  border-radius: 5px;
+}
+
+.nav-links .login-btn:hover {
+  background-color: #1c1c1f;
+  color: white;
+}
+
+.nav-links div {
+  cursor: pointer;
+}
+.HomePage {
+  display: flex;
+  flex-direction: column;
+}
+.HomePage h3 {
+  text-align: center;
+}
+/* ShowCase */
+.ShowCase {
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: url("/images/showcase1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.ShowCase h3 {
+  width: 70%;
+  font-size: 2.5rem;
+  color: white;
+}
+
+/* Categories */
+.Categories {
+  margin: 10px 0px 25px 0px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.Card .img {
+  height: 600px;
+  width: 300px;
+}
+.Card img {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.Card .title {
+  color: #36363a;
+  font-weight: 500;
+}
+
+.heading {
+  text-align: center;
+}
+
+/* AccomodationCard */
+.AccomodationCard {
+  width: 70%;
+  margin: 0px auto;
+
+  padding: 15px;
+}
+.AccomodationCard .slides {
+  height: 400px;
+  width: 70%;
+  background-color: #bbb;
+  position: relative;
+  display: flex;
+
+  overflow: scroll;
+  /* Add the following lines for smooth scrolling */
+  scroll-behavior: smooth;
+  transition: scroll 0.3s ease-in-out;
+}
+
+.slide {
+  display: none;
+}
+
+.slides img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.share-btn {
+  text-align: end;
+}
+.book-btn {
+  background-color: #a6a670;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+}
+
+/* User Dashboard */
+
+.UserDashboard {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.Main {
+  flex: 8;
+  height: inherit;
+  width: calc(100% - 355px);
+  background-color: white;
+  overflow-y: scroll;
+}
+
+.DashboardNav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
+  padding: 25px;
+  box-shadow: 1px 0px 5px #bbb;
+}
+.profile {
+  cursor: pointer;
+}
+.Sidebar {
+  flex: 2;
+  width: 30%;
+
+  display: flex;
+  flex-direction: column;
+
+  text-align: center;
+  padding: 10px 5px;
+  background-color: #1c1c1f;
+  gap: 50px;
+}
+.Sidebar .logo-container {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.logo-container .icon {
+  font-size: 34px;
+  color: #585851;
+}
+.logout {
+  cursor: pointer;
+  font-size: 1.1rem;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar-links {
+  flex: 90%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #b2bd7e;
+}
+
+.sidebar-links .link {
+  cursor: pointer;
+  margin: 0px 80px;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar-links div .icon {
+  flex: 1;
+  font-size: 32px;
+}
+
+.sidebar-links div .text {
+  flex: 2;
+  text-align: start;
+}
+
+.sidebar-links .link:hover {
+  background-color: #a6a670;
+  border-radius: 25px;
+}
+
+/* Bookings */
+.bookings-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+}
+.BookingCard {
+  width: 80%;
+  display: flex;
+  gap: 15px;
+
+  box-shadow: 1px 1px 5px #bbb;
+}
+.BookingCard .img {
+  flex: 30%;
+  background-color: #bbb;
+}
+
+.booking-card-info {
+  flex: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+/* Pending */
+.Pending {
+  padding: 5px 25px;
+}
+.pending-div {
+  display: flex;
+}
+.pending-div div {
+  flex: 1;
+  margin: 15px 0px;
+}
+
+.PendingCard {
+  padding: 2px 5px 0px 5px;
+  box-shadow: 1px 1px 5px #bbb;
+}
+.pending-btns {
+  text-align: end;
+}
+.pending-btns button {
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  background-color: #a6a670;
+  margin: 2px;
+}
+
+/* Reviews */
+.Reviews {
+  padding: 5px;
+}
+.reviews-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+}
+.ReviewCard {
+  width: 80%;
+  display: flex;
+  gap: 15px;
+
+  box-shadow: 1px 1px 5px #bbb;
+}
+.img-rating {
+  flex: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.img-rating .img {
+  width: 100%;
+  height: 150px;
+  background-color: #bbb;
+}
+
+.img-rating p {
+  margin: 5px;
+}
+
+.review-text {
+  flex: 70%;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+/* AddReview */
+.AddReview {
+  text-align: end;
+}
+.AddReview button {
+  background-color: #a6a670;
+  border: none;
+  padding: 5px 15px;
+  color: white;
+}
+
+/* Favourites */
+.Favourites {
+  padding: 15px 25px;
+}
+
+.favourites-div {
+  display: flex;
+  gap: 25px;
+}
+.FavouriteCard {
+  padding: 5px;
+  box-shadow: 1px 1px 5px #bbb;
+}
+.FavouriteCard .img {
+  width: 200px;
+  height: 200px;
+  background-color: #bbb;
+}
+
+/* History */
+.history-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.HistoryCard {
+  width: 80%;
+  padding: 2px 5px 0px 5px;
+  box-shadow: 1px 1px 5px #bbb;
+}
+
+/* Admin Dashboard */
+
+.AdminDashboard {
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+/* Reservations */
+.Reservations {
+  padding: 5px 25px;
+}
+.reservations-div {
+  display: flex;
+}
+.reservations-div div {
+  flex: 1;
+  margin: 15px 0px;
+}
+
+.ReservationCard {
+  width: 80%;
+  padding: 20px;
+  box-shadow: 1px 1px 5px #bbb;
+  border-radius: 5px;
+}
+.v-btn {
+  text-align: end;
+}
+.v-btn button {
+  border: none;
+  padding: 5px 10px;
+  color: white;
+  background-color: #a6a670;
+  margin: 0px;
+  border-radius: 5px;
+}
+.v-btn button:hover {
+  background-color: #969657;
+}
+.ReservationCard p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.checkin-out,
+.status-date {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+}
+.checkin-out div {
+  margin: 0px;
+}
+.status-date div {
+  margin: 0px;
+}
+
+/* ReservationViewCard */
+.ReservationViewCard {
+  padding: 25px;
+  margin: 50px 100px;
+}
+
+.ReservationCard button {
+  cursor: pointer;
+}
+.guest-name {
+  word-break: break-all;
+}
+.view-checkin-out {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.view-checkin-outdiv {
+  margin: 0px;
+}
+.view-btns {
+  text-align: end;
+}
+.view-btns button {
+  background-color: #1e2f23;
+  border: none;
+  color: white;
+  padding: 5px 15px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.view-btns button:hover {
+  background-color: #36363a;
+}
+/* Accomodations */
+.accomodations-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+}
+.AccCard {
+  width: 70%;
+  display: flex;
+  gap: 15px;
+  border-radius: 25px;
+  box-shadow: 1px 1px 5px #bbb;
+  color: #36363a;
+  cursor: pointer;
+}
+.AccCard .img {
+  flex: 50%;
+  height: 200px;
+  background-color: #bbb;
+  border-radius: 25px;
+}
+.AccCard img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.acc-card-info {
+  flex: 50%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+/* AddAccomodation */
+.AddAccomodation {
+  text-align: end;
+}
+.AddAccomodation button {
+  background-color: #a6a670;
+  border: none;
+  padding: 5px 15px;
+  margin: 10px 15px 10px 0px;
+  color: white;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.AddAccomodation button:hover {
+  background-color: #969657;
+}
+/* AccomodationDetails */
+.AccomodationDetails {
+  width: 70%;
+  margin: 0px auto;
+
+  padding: 15px;
+}
+.AccomodationDetails .img {
+  height: 400px;
+  width: 70%;
+  border-radius: 25px;
+}
+.AccomodationDetails img {
+  height: 100%;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.update-delete-btns button {
+  background-color: #1e2f23;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 2px;
+  border-radius: 25px;
+}
+.update-delete-btns button:hover {
+  background-color: #36363a;
+  cursor: pointer;
+}
+.AccomodationForm {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+  cursor: pointer;
+  padding: 5px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.form-div {
+  margin: 20px 0px;
+  border-radius: 25px;
+}
+.form-div form {
+  margin: 0 auto 0 auto;
+  padding: 25px;
+  width: 700px;
+
+  background-color: white;
+  border-radius: 25px;
+}
+.form-div form input[type="file"] {
+  font-size: 0.7rem;
+
+  outline: none;
+  border: none;
+}
+.form-div form input,
+select,
+textarea {
+  margin: 0px 5px;
+  padding: 5px 0px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.form-div form label {
+  width: 100%;
+  padding: 0px;
+  margin: 0px 5px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+.form-close {
+  text-align: end;
+  font-size: 1.5rem;
+  margin-top: 35px;
+  margin-right: -50px;
+  cursor: pointer;
+}
+.form-close:hover {
+  color: #626267;
+}
+.rating-guests {
+  display: flex;
+}
+
+.gallery label {
+  display: flex;
+  flex-direction: column;
+}
+
+.room_name-hotel_name {
+  display: flex;
+  align-items: center;
+}
+#task-add-submit {
+  padding: 10px 5px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 25px;
+  background-color: #303032;
+  color: white;
+  cursor: pointer;
+}
+.accomodation-update-form input {
+  margin: 0px 0px;
+  padding: 5px 0px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+}
+
+.accomodation-update-form label {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+}
+
+.update {
+  padding: 7px 15px;
+  background-color: #a6a670;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.update:hover {
+  background-color: #36363a;
+}
+
+.back {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0px;
+  border-radius: 50%;
+  margin-right: 0px;
+}
+
+.back:hover {
+  background-color: #6262673f;
+}
+/* User Login */
+.UserLogin {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  padding: 0px 50px;
+}
+
+.login-to-register p {
+  color: #1e2f23;
+  cursor: pointer;
+}
+
+.login-to-register p:hover {
+  color: #34632f;
+}
+
+.login-form-container {
+  flex: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserLogin .form {
+  margin: 50px auto;
+  padding: 25px 0px;
+  width: 60%;
+}
+.UserLogin input,
+textarea,
+select {
+  outline: none;
+  border: 1px solid #bbb;
+
+  margin: 15px 0;
+  padding: 5px 0px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  display: inline-block;
+}
+.UserLogin .form div label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+}
+
+.UserLogin .submit-btn {
+  margin: 5px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  background-color: #a6a670;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.UserLogin .submit-btn:hover {
+  background-color: #626267;
+}
+
+.login-img {
+  flex: 40%;
+
+  height: 500px;
+  background-color: #bbb;
+}
+
+.login-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Admin Login */
+.profile-pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.profile-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.DashboardNav .home {
+  color: #1c1c1f;
+  font-size: 1.2rem;
+  margin: 0px 20px;
+}
+.DashboardNav .home:hover {
+  color: #36363a;
+  cursor: pointer;
+}
+.login-register-container {
+  width: 70%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.AdminLogin {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 50px;
+}
+
+.login-to-register p {
+  color: #1e2f23;
+  cursor: pointer;
+}
+
+.login-to-register p:hover {
+  color: #34632f;
+}
+
+.login-form-container {
+  flex: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.AdminLogin .form {
+  margin: 50px auto;
+  padding: 25px 0px;
+  width: 60%;
+}
+.AdminLogin input,
+textarea,
+select {
+  outline: none;
+  border: 1px solid #bbb;
+
+  margin: 15px 0;
+  padding: 5px;
+  width: 98%;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 25px;
+  display: inline-block;
+}
+.AdminLogin .form div label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+}
+
+.AdminLogin .submit-btn {
+  margin: 5px 0px;
+  padding: 5px;
+  width: 100%;
+  background-color: #1c1c1f;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.AdminLogin .submit-btn:hover {
+  background-color: #626267;
+}
+
+.login-img {
+  flex: 40%;
+
+  height: 500px;
+  border-radius: 25px;
+  box-shadow: -2px 0px 3px 0px #bbbbbb67;
+}
+
+.login-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.AdminProfile {
+  text-align: center;
+  margin: 10px 0px;
+}
+/* Registration */
+.UserRegistration {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  padding: 0px 50px;
+}
+.register-to-login {
+  font-size: 0.7rem;
+  display: flex;
+}
+.register-to-login p {
+  color: #1e2f23;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+
+.register-to-login p:hover {
+  color: #34632f;
+}
+
+.register-form-container {
+  flex: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.UserRegistration .form {
+  width: 50%;
+  margin: 0px;
+  padding: 25px 0px;
+}
+.UserRegistration input,
+textarea,
+select {
+  outline: none;
+  border: 1px solid #bbb;
+
+  margin: 15px 0px 5px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  display: inline-block;
+}
+.UserRegistration .form div label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+}
+
+.UserRegistration .submit-btn {
+  margin: 5px 0px;
+  padding: 5px 0px;
+  width: 100%;
+  border-radius: 5px;
+  background-color: #a6a670;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+.UserRegistration .submit-btn:hover {
+  background-color: #626267;
+}
+.register-img {
+  flex: 40%;
+  height: 500px;
+  background-color: #bbb;
+}
+
+.register-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Checkout */
+.Checkout {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  padding: 0px 50px;
+}
+
+.checkout-form-container {
+  flex: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Checkout form {
+  margin: 50px auto;
+  padding: 25px 0px;
+  width: 60%;
+}
+.Checkout input,
+textarea,
+select {
+  outline: none;
+  border: 1px solid #bbb;
+
+  margin: 15px 0;
+  padding: 5px 0px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  display: inline-block;
+}
+.Checkout form div label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: rgb(133, 133, 133);
+  cursor: pointer;
+}
+
+.Checkout input[type="submit"] {
+  margin: 5px 0px;
+  background-color: #626267;
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.Checkout input[type="submit"]:hover {
+  background-color: #36363a;
+}
+
+.booking-order {
+  flex: 40%;
+
+  height: 500px;
+
+  text-align: center;
+}
+.booking-order div {
+  margin: 0px 250px;
+  height: 80%;
+  border: 1px dashed black;
+}
+/*Loading*/
+.Loading {
+  height: calc(100vh - 220px);
+  text-align: center;
+  margin: 15px;
+}
+
+/* Footer */
+
+.footer {
+  height: 200px;
+
+  color: white;
+  background-color: #36363a;
+
+  font-family: "Ubuntu";
+
+  padding: 75px;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* Support Section - Footer */
+.support-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.support-h {
+  margin-bottom: 45px;
+
+  font-weight: 600;
+}
+
+.support-links > a {
+  color: white;
+
+  text-decoration: none;
+}
+
+.support-links > a:hover {
+  text-decoration: underline;
+}
+
+/* Company Section - Footer */
+.company-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.company-h {
+  margin-bottom: 45px;
+
+  font-weight: 600;
+}
+
+.company-links > a {
+  color: white;
+
+  text-decoration: none;
+}
+
+.company-links > a:hover {
+  text-decoration: underline;
+}
+
+/* Connect Section - Footer */
+.connect-links {
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.connect-h {
+  margin-bottom: 45px;
+
+  font-weight: 600;
+}
+
+.connect-links > a {
+  color: white;
+
+  text-decoration: none;
+}
+
+.connect-links > a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+  .reservations-div {
+    flex-direction: column;
+  }
+  .ShowCase h3 {
+    top: 80px;
+    left: 50%;
+
+    font-size: 2.5rem;
+  }
+  .search-div {
+    padding: 50px 0px;
+  }
+  .SearchAccomodationsResults {
+    width: 70%;
+    flex-direction: column;
+  }
+  .SearchAccomodationsResults input {
+    width: 100%;
+  }
+
+  .results-main {
+    flex-direction: column;
+  }
+  .Filters {
+    display: flex;
+    overflow-x: scroll;
+  }
+  .filter-section {
+    display: flex;
+    align-items: center;
+  }
+  .AdminDashboard {
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .Main {
+    flex: 8;
+    height: inherit;
+    width: 100%;
+    background-color: white;
+  }
+
+  .Sidebar {
+    flex: 2;
+    width: 100%;
+  }
+  .sidebar-links {
+    flex: 90%;
+    flex-direction: row;
+    gap: 0px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .AccomodationForm {
+    padding: 0px;
+  }
+  .AccomodationForm .form-div {
+    width: 80%;
+    padding: 0px;
+  }
+  .AccomodationForm .form-div form {
+    margin: 0 auto 0 auto;
+    width: 100%;
+    overflow-y: hidden;
+  }
+
+  .AccomodationForm form input {
+    width: 100%;
+    margin: 5px 0px;
+    float: right;
+  }
+  .AccomodationForm .form-close {
+    margin-left: -205px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .AccCard {
+    flex-direction: column;
+  }
+  .ReservationViewCard {
+    padding: 5px;
+    margin: 5px 00px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .ShowCase h3 {
+    top: 80px;
+    left: 50%;
+    width: 80%;
+  }
+  .cards {
+    text-align: center;
+  }
+  .Card {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Card .img {
+    width: 80%;
+  }
+  .AccomodationDetails .img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .Nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    justify-content: space-evenly;
+  }
+
+  .logo {
+    text-align: center;
+  }
+
+  .ShowCase h3 {
+    top: 60px;
+    left: 50%;
+    width: 80%;
+  }
+  .reservations-div div {
+    padding: 2px;
+  }
+  .ReservationCard {
+    padding: 25px;
+    width: 100%;
+  }
+}
