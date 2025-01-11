@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function AdminProfile({ admin }) {
   return (
     <div className="AdminProfile">
