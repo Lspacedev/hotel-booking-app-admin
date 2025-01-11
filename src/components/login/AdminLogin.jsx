@@ -11,8 +11,8 @@ function AdminLogin() {
   function login() {
     signInWithEmailAndPassword(
       auth,
-      import.meta.env.VITE_ADMIN_EMAIL,
-      import.meta.env.VITE_ADMIN_PASSWORD
+      process.env.ADMIN_EMAIL,
+      process.env.ADMIN_PASSWORD
     )
       .then(() => {
         alert("Log in successfully");
@@ -40,6 +40,7 @@ function AdminLogin() {
                   type="email"
                   id="email"
                   name="email"
+                  placeholder="Admin"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
@@ -52,6 +53,7 @@ function AdminLogin() {
                   type="password"
                   id="password"
                   name="password"
+                  placeholder="******"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </label>

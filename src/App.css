@@ -39,7 +39,8 @@ body {
 }
 
 .nav-links .login-btn:hover {
-  border: 1px solid #626267;
+  background-color: #1c1c1f;
+  color: white;
 }
 
 .nav-links div {
@@ -54,7 +55,7 @@ body {
 }
 /* ShowCase */
 .ShowCase {
-  height: 700px;
+  height: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -84,7 +85,7 @@ body {
 }
 
 .Card .img {
-  height: 300px;
+  height: 600px;
   width: 300px;
 }
 .Card img {
@@ -1076,21 +1077,19 @@ select {
 /* Footer */
 
 .footer {
-  height: 400px;
+  height: 200px;
 
   color: white;
   background-color: #36363a;
 
   font-family: "Ubuntu";
 
-  padding-top: 75px;
+  padding: 75px;
 }
 
 .footer-info {
   display: flex;
   justify-content: space-evenly;
-
-  margin-bottom: 100px;
 }
 
 /* Support Section - Footer */

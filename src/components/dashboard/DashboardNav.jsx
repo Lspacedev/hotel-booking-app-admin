@@ -9,9 +9,6 @@ function DashboardNav() {
   }
   return (
     <div className="DashboardNav">
-      <div className="home" onClick={() => navigation("/")}>
-        Home
-      </div>
       <div className="profile-icon" onClick={navigateProfile}>
         <img src="/images/profile.png" />
       </div>
