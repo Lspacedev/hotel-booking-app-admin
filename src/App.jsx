@@ -22,7 +22,7 @@ import { useDispatch } from "react-redux";
 import { setAccomodations } from "./app/accomodationsSlice";
 
 import AdminProfile from "./components/profiles/AdminProfile";
-
+import Welcome from "./components/dashboard/Welcome";
 function App() {
   const [user, setUser] = useState("");
   const dispatch = useDispatch();
@@ -68,7 +68,7 @@ function App() {
           <Route exact path="login" element={<AdminLogin />} />
           <Route element={<ProtectedRoutes auth={user} />}>
             <Route path="home" element={<AdminDashboard />}>
-              <Route index element={<Accomodations />} />
+              <Route index element={<Welcome />} />
               <Route path="accomodations" element={<Accomodations />}>
                 <Route
                   path=":accomodation_id"

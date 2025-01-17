@@ -1,14 +1,21 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
+import { IoStarSharp } from "react-icons/io5";
 
 function AccCard({ accomodation }) {
   const storage = getStorage();
-  console.log(accomodation.images.length === 0 ? accomodation.id : "jj");
   const navigation = useNavigate();
 
   function handleNavigateSubPage() {
     navigation(`/home/accomodations/${accomodation.id}`);
+  }
+  function printStars(num) {
+    let arr = [];
+    for (let i = 0; i < num; i++) {
+      arr.push(0);
+    }
+    return arr;
   }
   return (
     <div className="AccCard" onClick={handleNavigateSubPage}>
@@ -20,7 +27,12 @@ function AccCard({ accomodation }) {
           <h4>{accomodation.room_name}</h4>
 
           <h6>{accomodation.hotel_name}</h6>
-          <p>{accomodation.rating}</p>
+          <p>
+            {printStars(accomodation.rating) &&
+              printStars(accomodation.rating).map((elem, i) => (
+                <IoStarSharp key={i} className="star" />
+              ))}
+          </p>
           <p>{accomodation.description}</p>
         </div>
         <div>

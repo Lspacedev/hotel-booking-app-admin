@@ -119,6 +119,7 @@ function AccomodationForm({ toggleClicked }) {
                 type="text"
                 id="room_name"
                 name="room_name"
+                maxLength="25"
                 onChange={(e) => handleChange(e)}
                 value={obj.room_name}
               />
@@ -185,6 +186,7 @@ function AccomodationForm({ toggleClicked }) {
                 type="text"
                 id="price"
                 name="price"
+                maxLength="10"
                 onChange={(e) => handleChange(e)}
                 value={obj.price}
               />
@@ -197,6 +199,7 @@ function AccomodationForm({ toggleClicked }) {
               <textarea
                 id="address"
                 name="address"
+                maxLength="150"
                 onChange={(e) => handleChange(e)}
                 value={obj.address}
               ></textarea>
@@ -236,6 +239,7 @@ function AccomodationForm({ toggleClicked }) {
               <textarea
                 id="amenities"
                 name="amenities"
+                maxLength="150"
                 onChange={(e) => handleChange(e)}
                 value={obj.amenities}
               ></textarea>
@@ -247,6 +251,7 @@ function AccomodationForm({ toggleClicked }) {
               <textarea
                 id="policies"
                 name="policies"
+                maxLength="150"
                 onChange={(e) => handleChange(e)}
                 value={obj.policies}
               ></textarea>
@@ -258,6 +263,7 @@ function AccomodationForm({ toggleClicked }) {
               <textarea
                 id="description"
                 name="description"
+                maxLength="150"
                 onChange={(e) => handleChange(e)}
                 value={obj.description}
               ></textarea>

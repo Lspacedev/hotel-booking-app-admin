@@ -5,7 +5,21 @@
 body {
   margin: 0px;
 }
+.Welcome {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
+  height: calc(100% - 70px);
+}
+.Welcome .title {
+  font-size: 2rem;
+  margin-top: 50px;
+  text-align: center;
+}
+.Welcome .text {
+  text-align: center;
+}
 /* Nav */
 .Nav {
   display: flex;
@@ -213,6 +227,7 @@ body {
 .Sidebar .logo-container {
   flex: 10%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
@@ -220,6 +235,12 @@ body {
 .logo-container .icon {
   font-size: 34px;
   color: #585851;
+}
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #b2bd7e;
+  margin: 0px;
 }
 .logout {
   cursor: pointer;
@@ -488,7 +509,7 @@ body {
   text-align: end;
 }
 .view-btns button {
-  background-color: #1e2f23;
+  background-color: #969657;
   border: none;
   color: white;
   padding: 5px 15px;
@@ -504,7 +525,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   padding: 15px 25px;
 }
 .AccCard {
@@ -516,10 +537,12 @@ body {
   color: #36363a;
   cursor: pointer;
 }
+.AccCard:hover {
+  box-shadow: 2px 2px 10px #6d6d6d;
+}
 .AccCard .img {
-  flex: 50%;
+  flex: 30%;
   height: 200px;
-  background-color: #bbb;
   border-radius: 25px;
 }
 .AccCard img {
@@ -532,7 +555,7 @@ body {
   flex: 50%;
   display: flex;
   justify-content: space-between;
-  padding: 0px 5px;
+  padding: 0px 15px;
 }
 
 /* AddAccomodation */
@@ -570,7 +593,7 @@ body {
 }
 
 .update-delete-btns button {
-  background-color: #1e2f23;
+  background-color: #969657;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -724,7 +747,7 @@ textarea {
 }
 
 .login-to-register p {
-  color: #1e2f23;
+  color: #969657;
   cursor: pointer;
 }
 
@@ -834,7 +857,7 @@ select {
 }
 
 .login-to-register p {
-  color: #1e2f23;
+  color: #969657;
   cursor: pointer;
 }
 
@@ -925,7 +948,7 @@ select {
   display: flex;
 }
 .register-to-login p {
-  color: #1e2f23;
+  color: #969657;
   margin: 0px 5px;
   cursor: pointer;
 }
@@ -1077,8 +1100,6 @@ select {
 /* Footer */
 
 .footer {
-  height: 200px;
-
   color: white;
   background-color: #36363a;
 
@@ -1224,6 +1245,7 @@ select {
   .AccomodationForm .form-div {
     width: 80%;
     padding: 0px;
+    margin-left: -50px;
   }
   .AccomodationForm .form-div form {
     margin: 0 auto 0 auto;
@@ -1236,17 +1258,74 @@ select {
     margin: 5px 0px;
     float: right;
   }
+
   .AccomodationForm .form-close {
     margin-left: -205px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .AccCard {
+    flex-direction: column;
+  }
+  .login-register-container {
+    flex-direction: column;
+  }
+  .AdminLogin {
+    overflow-y: auto;
+  }
+  .AdminLogin .form {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+  .login-img {
+    background-color: white;
+    box-shadow: none;
+  }
+  .login-form-container {
+    width: 100%;
+  }
+  .login-to-register {
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 480px) {
   .AccCard {
     flex-direction: column;
+    width: 90%;
   }
   .ReservationViewCard {
     padding: 5px;
     margin: 5px 00px;
+  }
+  .footer-logo {
+    justify-content: center;
+  }
+  .footer-info {
+    height: 100%;
+    margin-bottom: 0px;
+    text-align: center;
+    flex-direction: column;
+  }
+  .section-one {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-one-title {
+    text-align: start;
+    padding-left: 28px;
+  }
+
+  .section-three {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-three-para2 {
+    margin-bottom: 50px;
   }
 }
 

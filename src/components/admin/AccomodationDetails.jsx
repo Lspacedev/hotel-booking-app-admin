@@ -170,6 +170,7 @@ function AccomodationDetails() {
                   type="text"
                   id="room_name"
                   name="room_name"
+                  maxLength="25"
                   onChange={(e) => handleChange(e)}
                   value={obj.room_name}
                 />
@@ -225,6 +226,7 @@ function AccomodationDetails() {
                 <textarea
                   id="address"
                   name="address"
+                  maxLength="150"
                   onChange={(e) => handleChange(e)}
                   value={obj.address}
                 ></textarea>
@@ -267,6 +269,7 @@ function AccomodationDetails() {
                 <textarea
                   id="amenities"
                   name="amenities"
+                  maxLength="150"
                   onChange={(e) => handleChange(e)}
                   value={obj.amenities}
                 ></textarea>
@@ -278,6 +281,7 @@ function AccomodationDetails() {
                 <textarea
                   id="policies"
                   name="policies"
+                  maxLength="150"
                   onChange={(e) => handleChange(e)}
                   value={obj.policies}
                 ></textarea>
@@ -289,6 +293,7 @@ function AccomodationDetails() {
                 <textarea
                   id="description"
                   name="description"
+                  maxLength="150"
                   onChange={(e) => handleChange(e)}
                   value={obj.description}
                 ></textarea>
