@@ -622,18 +622,18 @@ body {
   align-items: center;
   overflow-y: scroll;
 }
-
 .form-div {
-  margin: 20px 0px;
-  border-radius: 25px;
+  height: 100%;
+  width: 80%;
+  margin: 25px 0px;
+  padding: 0px;
 }
 .form-div form {
-  margin: 0 auto 0 auto;
-  padding: 25px;
-  width: 700px;
-
+  margin: 10px auto 10px auto;
+  padding: 25px 15px;
+  width: 90%;
   background-color: white;
-  border-radius: 25px;
+  border-radius: 15px;
 }
 .form-div form input[type="file"] {
   font-size: 0.7rem;
@@ -644,11 +644,12 @@ body {
 .form-div form input,
 select,
 textarea {
-  margin: 0px 5px;
+  margin: 0px;
   padding: 5px 0px;
   outline: none;
   border: 1px solid #bbb;
   border-radius: 2px;
+  box-sizing: border-box;
 }
 
 .form-div form label {
@@ -665,7 +666,7 @@ textarea {
   text-align: end;
   font-size: 1.5rem;
   margin-top: 35px;
-  margin-right: -50px;
+  margin-right: 0px;
   cursor: pointer;
 }
 .form-close:hover {
@@ -1186,6 +1187,21 @@ select {
 }
 
 @media screen and (max-width: 768px) {
+  .room_name-hotel_name {
+    flex-direction: column;
+  }
+  .form-div {
+    width: 100%;
+  }
+  .form-div form {
+    padding: 5px;
+    margin: 0px;
+  }
+  .form-div form input {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
   .reservations-div {
     flex-direction: column;
   }
@@ -1243,9 +1259,8 @@ select {
     padding: 0px;
   }
   .AccomodationForm .form-div {
-    width: 80%;
-    padding: 0px;
-    margin-left: -50px;
+    width: 90%;
+    padding: 5px 10px;
   }
   .AccomodationForm .form-div form {
     margin: 0 auto 0 auto;
@@ -1253,14 +1268,11 @@ select {
     overflow-y: hidden;
   }
 
-  .AccomodationForm form input {
+  .AccomodationForm form input,
+  textarea {
     width: 100%;
     margin: 5px 0px;
     float: right;
-  }
-
-  .AccomodationForm .form-close {
-    margin-left: -205px;
   }
 }
 @media screen and (max-width: 1024px) {
