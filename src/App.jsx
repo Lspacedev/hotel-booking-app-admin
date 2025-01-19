@@ -24,7 +24,7 @@ import { setAccomodations } from "./app/accomodationsSlice";
 import AdminProfile from "./components/profiles/AdminProfile";
 
 function App() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState(null);
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -32,7 +32,8 @@ function App() {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/firebase.User
         const uid = user.uid;
-        setUser(user);
+        localStorage.setItem("uid", JSON.stringify(uid));
+        // setUser(uid);
         // ...
       } else {
         // User is signed out

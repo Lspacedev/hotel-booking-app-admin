@@ -4,7 +4,6 @@ import { getStorage, getDownloadURL, ref, listAll } from "firebase/storage";
 
 function AccCard({ accomodation }) {
   const storage = getStorage();
-  console.log(accomodation.images.length === 0 ? accomodation.id : "jj");
   const navigation = useNavigate();
 
   function handleNavigateSubPage() {
