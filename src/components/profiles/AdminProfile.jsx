@@ -15,7 +15,7 @@ function AdminProfile({ admin }) {
         <div className="email-div">
           <h4>Email</h4>
 
-          <div>{admin && admin.email}</div>
+          <div>{"admin@******.com"}</div>
         </div>
 
         <div className="admin-pass">
