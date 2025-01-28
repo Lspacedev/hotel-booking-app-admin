@@ -320,7 +320,7 @@ function AccomodationDetails() {
             </div>
 
             <div className="accomodation-info">
-              <h4>{accomodation && accomodation.price}</h4>
+              <h4>R{accomodation && accomodation.price}</h4>
               <div className="acc-info-section">
                 <h5>Room description</h5>
                 <p>{accomodation && accomodation.description}</p>

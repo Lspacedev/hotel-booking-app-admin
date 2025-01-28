@@ -143,7 +143,7 @@ function ReservationViewCard() {
           <div className="guests-room-type">
             <div>
               <p>Nr of guests</p>
-              <h6>{bookingObj.guests}</h6>
+              <h6>{currentRoom.guests}</h6>
             </div>
             <div>
               <p>Room Type</p>
@@ -154,7 +154,7 @@ function ReservationViewCard() {
       </div>
 
       <div className="accomodation-info">
-        <h4>{currentRoom.price}</h4>
+        <h4>R{currentRoom.price}</h4>
         <div className="acc-info-section">
           <h5>Room description</h5>
           <p>{currentRoom && currentRoom.description}</p>

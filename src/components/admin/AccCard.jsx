@@ -33,7 +33,11 @@ function AccCard({ accomodation }) {
                 <IoStarSharp key={i} className="star" />
               ))}
           </p>
-          <p>{accomodation.description}</p>
+          <p>
+            {accomodation && accomodation.description.length > 25
+              ? accomodation.description.slice(0, 35) + "..."
+              : accomodation.description}
+          </p>
         </div>
         <div>
           <p>R{accomodation.price}</p>

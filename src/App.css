@@ -267,7 +267,7 @@ body {
 .sidebar-links .link {
   cursor: pointer;
   margin: 0px 80px;
-  padding: 10px 0px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1345,6 +1345,8 @@ select {
   }
   .sidebar-links .link {
     flex-direction: column;
+
+    padding: 10px 5px;
   }
   .sidebar-links .link .text {
     font-size: 0.7rem;
