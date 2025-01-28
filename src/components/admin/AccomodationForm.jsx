@@ -106,12 +106,12 @@ function AccomodationForm({ toggleClicked }) {
   return (
     <div className="AccomodationForm">
       <div className="form-div">
-        <div className="form-title-close">
-          <div className="form-close" onClick={handleFormClose}>
-            <IoCloseOutline />
-          </div>
-        </div>
         <form>
+          <div className="form-title-close">
+            <div className="form-close" onClick={handleFormClose}>
+              <IoCloseOutline />
+            </div>
+          </div>
           <div className="room_name-hotel_name">
             <label htmlFor="room_name">
               Room Name

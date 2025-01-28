@@ -605,6 +605,7 @@ body {
   background-color: #36363a;
   cursor: pointer;
 }
+
 .AccomodationForm {
   position: fixed;
   width: 100%;
@@ -616,25 +617,26 @@ body {
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 2;
   cursor: pointer;
-  padding: 5px;
+  padding: 0px;
   margin: 0px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .form-div {
-  height: 90%;
-  width: 70%;
-  margin: 25px 0px;
   padding: 0px;
+  height: calc(90% - 50px);
+  width: 80%;
+  overflow-y: auto;
 }
 .form-div form {
-  padding: 30px 5px;
-  width: calc(100% - 10px);
-  height: 85%;
-  border-radius: 5px;
-  margin: 0px;
+  margin: 0 auto 0 auto;
+  padding: 25px;
+  width: calc(100% - 50px);
+  height: auto;
+  overflow: hidden;
   background-color: white;
 }
 .form-div form input[type="file"] {
@@ -653,17 +655,26 @@ textarea {
   border-radius: 2px;
   box-sizing: border-box;
 }
+.form-div form textarea {
+  margin: 0px;
+  padding: 5px 0px;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
 
 .form-div form label {
   width: 100%;
   padding: 0px;
-  margin: 0px;
+  margin: 0px 5px;
   color: rgb(133, 133, 133);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   text-align: start;
 }
+
 .form-close {
   text-align: end;
   font-size: 1.5rem;
@@ -1225,7 +1236,10 @@ select {
   .room_name-hotel_name {
     flex-direction: column;
   }
-  .form-div {
+  .rating-guests {
+    flex-direction: column;
+  }
+  /* .form-div {
     width: 100%;
   }
   .form-div form {
@@ -1236,7 +1250,7 @@ select {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-  }
+  } */
   .reservations-div {
     flex-direction: column;
     align-items: center;
@@ -1296,27 +1310,27 @@ select {
     align-items: center;
   }
 
-  .AccomodationForm {
+  /* .AccomodationForm {
     padding: 0px;
   }
-
   .AccomodationForm .form-div {
     width: 90%;
+    padding: 5px 10px;
   }
-  .AccomodationForm form {
-    overflow-y: auto;
+  .AccomodationForm .form-div form {
+    margin: 0 auto 0 auto;
+    width: 100%;
+    overflow-y: hidden;
+  } */
+  .AccomodationForm .form-div {
+    width: 90%;
+    padding: 5px 10px;
   }
   .AccomodationForm form input,
   textarea {
     width: 100%;
     margin: 5px 0px;
     float: right;
-  }
-  .rating-guests {
-    flex-direction: column;
-  }
-  .AccomodationForm .form-close {
-    color: whitesmoke;
   }
 }
 
