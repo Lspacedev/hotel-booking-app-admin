@@ -10,7 +10,7 @@ import Accomodations from "./components/admin/Accomodations";
 import AdminLogin from "./components/login/AdminLogin";
 import Reservations from "./components/admin/Reservations";
 import ReservationViewCard from "./components/admin/ReservationViewCard";
-
+import ProtectedRouteReg from "./components/protected-routes/ProtectedRouteReg";
 import ProtectedRoutes from "./components/protected-routes/ProtectedRoutes";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { collectionGroup, getDocs } from "firebase/firestore";
@@ -63,8 +63,10 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
-          <Route exact path="login" element={<AdminLogin />} />
+          <Route element={<ProtectedRouteReg auth={user} />}>
+            <Route exact path="/" element={<HomePage />} />
+            <Route exact path="login" element={<AdminLogin />} />
+          </Route>
           <Route element={<ProtectedRoutes auth={user} />}>
             <Route path="home" element={<AdminDashboard />}>
               <Route index element={<Welcome />} />
