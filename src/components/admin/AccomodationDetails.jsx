@@ -335,7 +335,7 @@ function AccomodationDetails() {
               </div>
               <div className="update-delete-btns">
                 <button className="update-btn" onClick={() => setEdit(true)}>
-                  Update
+                  Edit
                 </button>
                 <button className="delete-btn" onClick={deleteAccomodation}>
                   Delete

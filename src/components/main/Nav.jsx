@@ -9,8 +9,14 @@ function Nav() {
   return (
     <div className="Nav">
       <div className="logo-container" onClick={() => navigation("/")}>
-        <FaHotel className="icon" />
-        <h3 className="logo">ZaHotels.com|Admin</h3>
+        <img
+          src="/images/logo-icon2.png"
+          style={{ width: "50px", height: "50px" }}
+        />
+        <img
+          src="/images/logo-text2.png"
+          style={{ width: "130px", height: "25px" }}
+        />
       </div>
       <div className="nav-links">
         <div className="login-btn" onClick={navigateLogin}>

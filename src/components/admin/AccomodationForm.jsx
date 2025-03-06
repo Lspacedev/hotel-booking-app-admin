@@ -220,7 +220,7 @@ function AccomodationForm({ toggleClicked }) {
               />
             </label>
             <label htmlFor="guests">
-              Nr of guests
+              Number of guests
               <input
                 type="number"
                 max="15"
