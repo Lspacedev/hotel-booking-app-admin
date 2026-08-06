@@ -2,7 +2,10 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer-info">
-        <div className="footer-logo">ZaHotels.com</div>
+        <div className="footer-logo">
+          <img src="/images/logo-icon4.png" className="logo-icon-img" />
+          <img src="/images/logo-text.png" className="logo-text-img" />
+        </div>
         <div className="support-section">
           <div className="support-h">Support</div>
           <div className="support-links">

@@ -1,8 +1,98 @@
-# React + Vite
+# React + Firebase Hotel Booking App | ADMIN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React hotel booking/management app using firebase as storage and database. This is the admin side of the web app, where admins can add and manage hotel rooms.
 
-Currently, two official plugins are available:
+### Hotel Booking App | Client
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://github.com/Lspacedev/hotel-booking-app](https://github.com/Lspacedev/hotel-booking-app)
+
+## Prerequisites
+
+- ReactJs
+- A Firebase account, follow the link [here](https://firebase.google.com/)
+
+## Installation
+
+1. Clone the repository
+
+```bash
+git@github.com:Lspacedev/hotel-booking-app-admin.git
+```
+
+2. Navigate to the project folder
+
+```bash
+cd hotel-booking-app-admin
+```
+
+3.  Install all dependencies
+
+```bash
+npm install
+```
+
+4. Create an env file and add the following:
+
+```bash
+API_KEY="Firebase Api key"
+AUTH_DOMAIN="Firebase Auth Domain"
+PROJECT_ID="Firebase Project Id"
+STORAGE_BUCKET="Firebase Storage Bucket"
+MESSAGING_SENDER_ID="Firebase Messaging Sender Id"
+APP_ID="Firebase App Id"
+MEASUREMENT_ID="Firebase Measurement Id"
+```
+
+5. Run the project
+
+```bash
+npm run dev
+```
+
+## Screenshot
+
+![login](public/images/screenshot.png)
+![home](public/images/screenshot2.png)
+
+## Features
+
+- Authentication: Login to Admin account.
+
+Hotels
+
+- View all hotel rooms.
+- Add new hotel room.
+- Update hotel room information.
+- Remove existing hotel room.
+
+Reservations
+
+- View all hotel room reservations.
+- View reservation details.
+- Approve reservation.
+- Reject reservation.
+
+## Usage
+
+1. Open the live site in your browser.
+2. Navigate to the login page.
+3. Press login button **_ Note that the Admin Crendentials are already inputted, theres no admin account creation _**
+4. Once in the dashboard, you can manage both accomodations/rooms and reservations.
+
+## Tech Stack
+
+- ReactJs
+- Firebase
+
+## Credits:
+
+```python
+Photo by Jimmy Chan: https://www.pexels.com/photo/several-lighted-high-rise-buildings-933337/
+<a href="https://www.freepik.com/free-vector/planning-illustration_19635378.htm#fromView=author&page=2&position=48&uuid=9282d6e1-7d19-423f-9db3-7a65fadf192c">Image by vectorjuice on Freepik</a>
+```
+
+## Flows:
+
+```python
+https://www.figma.com/board/CJ0hyIKh69osFRaYgrpzGJ/Hotel-App-User-Flow?node-id=0-1&node-type=canvas
+```
