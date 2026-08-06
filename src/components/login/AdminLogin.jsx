@@ -44,7 +44,7 @@ function AdminLogin() {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Admin"
+                  placeholder="Admin@zahotels.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
@@ -57,7 +57,7 @@ function AdminLogin() {
                   type="password"
                   id="password"
                   name="password"
-                  placeholder="******"
+                  placeholder="admin"
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </label>
