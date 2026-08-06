@@ -44,7 +44,7 @@ function AdminLogin() {
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="Admin@zahotels.com"
+                  placeholder="admin@zahotels.co.za"
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </label>
